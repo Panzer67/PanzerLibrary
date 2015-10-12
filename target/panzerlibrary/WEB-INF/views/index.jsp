@@ -7,12 +7,12 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <link rel="stylesheet" href="http://localhost:8080/panzerlibrary/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://localhost:8080/panzerlibrary/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="http://localhost:8080/panzerlibrary/css/style.css">        
-        <script src="http://localhost:8080/panzerlibrary/js/jquery.min.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/bootstrap.min.js"></script>    
-        <base href="/panzerlibrary/" />
+        <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/style.css">        
+        <script src="http://localhost:8080/PanzerLibrary/js/jquery.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/bootstrap.min.js"></script>    
+        <base href="/PanzerLibrary/" />
         <title>PanzerLibrary</title>
     </head>
     <body ng-app="PanzerLibrary" ng-controller="libController as libCtrl">
@@ -50,7 +50,7 @@
                                     <a href="#/journal" class="btn btn-default navbar-btn">Journal</a>
                                     <a href="" class="btn btn-default navbar-btn">Paper</a>
                                     <a href="" class="btn btn-default navbar-btn">Document</a>
-                                    <a href="http://localhost:8080/panzerlibrary/edit/newuser" class="btn btn-default navbar-btn">User</a>
+                                    <a href="http://localhost:8080/PanzerLibrary/edit/newuser" class="btn btn-default navbar-btn">User</a>
                                 </div>
                             </li>
                         </ul>
@@ -69,15 +69,15 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular-route.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/panzerLibrary.js"></script>        
-        <script src="http://localhost:8080/panzerlibrary/js/libController.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/searchController.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/articleController.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/searchFactory.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/editController.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/authorFactory.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/bookFactory.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/articleFactory.js"></script>
-        <script src="http://localhost:8080/panzerlibrary/js/journalFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/panzerLibrary.js"></script>        
+        <script src="http://localhost:8080/PanzerLibrary/js/libController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/searchController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/articleController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/searchFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/editController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/authorFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/bookFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/articleFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/journalFactory.js"></script>
     </body>
 </html>

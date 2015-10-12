@@ -8,7 +8,7 @@
         
         factory.getSearch = function(searchInput) {
             var deferred = $q.defer();
-            $http.get('http://localhost:8080/panzerlibrary/search/' + searchInput)
+            $http.get('http://localhost:8080/PanzerLibrary/search/' + searchInput)
                     .success(function(data) {
                         deferred.resolve(data);
             }).error(function(msg) {
@@ -20,7 +20,7 @@
         
         factory.getArticle = function(title) {
             var deferred = $q.defer();
-            $http.get('http://localhost:8080/panzerlibrary/article/' + title)
+            $http.get('http://localhost:8080/PanzerLibrary/article/' + title)
                     .success(function(data) {
                         deferred.resolve(data);
             }).error(function(msg) {

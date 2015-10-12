@@ -15,7 +15,7 @@
             if (typeOfForm === 'article') {             
                 vm.formData = vm.article;                
             }
-            var response = $http.post('http://localhost:8080/panzerlibrary/edit/add' + typeOfForm, vm.formData);   
+            var response = $http.post('http://localhost:8080/PanzerLibrary/edit/add' + typeOfForm, vm.formData);   
             response.success(function (response) {
                 response = response.message.concat(((editVar.edit === "Add") ? " added" : " updated" ));
                 vm.success = response; 
@@ -27,7 +27,7 @@
         
         vm.deleteArticle = function() {
             var articleId = vm.article.id;
-            var response = $http.post('http://localhost:8080/panzerlibrary/delete/article/' + articleId);   
+            var response = $http.post('http://localhost:8080/PanzerLibrary/delete/article/' + articleId);   
             response.success(function (response) {
                 response = response.message.concat(" deleted");
                 vm.success = response; 

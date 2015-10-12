@@ -33,7 +33,7 @@
                 journalFactory.setJournal(vm.journal.journal_name);
                 vm.formData = journalFactory.getJournal();                
             }
-            var response = $http.post('http://localhost:8080/panzerlibrary/edit/add' + typeOfForm, vm.formData);   
+            var response = $http.post('http://localhost:8080/PanzerLibrary/edit/add' + typeOfForm, vm.formData);   
             response.success(function (response) {
                 vm.success = response;                
             }).error(function (err) {
