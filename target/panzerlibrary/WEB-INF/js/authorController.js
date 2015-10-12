@@ -13,7 +13,7 @@
             }
             var response = $http.post('http://localhost:8080/panzerlibrary/edit/add' + typeOfForm, vm.formData);
             response.success(function (response) {
-                response = response.message.concat(((editVar.edit === "Add") ? " added" : " updated"));
+                response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated"));
                 vm.success = response;
 
             }).error(function (err) {
