@@ -1,0 +1,27 @@
+body { 
+    padding-top: 70px;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.panzer-nav {
+    background-color: #214c6c;
+    color: #000;
+}
+
+.error {
+    color: firebrick;
+}
+
+.addRemoveAuthorButton {
+    width: 20px;
+}
+
+.itemId {
+    visibility: hidden;
+}
+
+
+
