@@ -116,7 +116,7 @@
                             articleForm.journal_name.$error.required || articleForm.volume.$error.required || articleForm.issue.$error.required ||
                             articleForm.year.$error.required || articleForm.year.$error.pattern || articleForm.pages.$error.required"
                         type="submit" class="btn btn-success" >{{articleCtrl.editVar.edit}} Article</button>
-                <button type="button" ng-show="articleCtrl.editVar.edit === 'Update'" ng-click="articleCtrl.deleteArticle()" class="btn btn-success">Delete</button>
+                <button type="button" ng-show="articleCtrl.editTask.edit === 'Update'" ng-click="articleCtrl.deleteArticle()" class="btn btn-success">Delete</button>
             </div>
         </div>
         <input type="hidden" data-ng-model="articleId" value="{{articleCtrl.article.id}}" >

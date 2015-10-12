@@ -1,10 +1,10 @@
 (function () {
     angular.module("PanzerLibrary").controller("articleController", articleController);
 
-    articleController.$inject = ['$http', 'authorFactory', 'articleFactory', 'journalFactory', 'article', 'editVar']
-    function articleController($http, authorFactory, articleFactory, journalFactory, article, editVar) {
+    articleController.$inject = ['$http', 'authorFactory', 'articleFactory', 'journalFactory', 'article', 'editTask']
+    function articleController($http, authorFactory, articleFactory, journalFactory, article, editTask) {
         var vm = this;
-        vm.editVar = editVar;
+        vm.editTask = editTask;
         vm.authors = article.authors;
         
         vm.journal = article.journal;
@@ -17,7 +17,7 @@
             }
             var response = $http.post('http://localhost:8080/PanzerLibrary/edit/add' + typeOfForm, vm.formData);   
             response.success(function (response) {
-                response = response.message.concat(((editVar.edit === "Add") ? " added" : " updated" ));
+                response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated" ));
                 vm.success = response; 
                
             }).error(function (err) {

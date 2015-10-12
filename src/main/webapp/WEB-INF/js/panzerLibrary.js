@@ -18,11 +18,14 @@
                 })
                 .when('/author', {
                     templateUrl: 'author',
-                    controller: 'editController',
-                    controllerAs: 'editCtrl',
+                    controller: 'authorController',
+                    controllerAs: 'authorCtrl',
                     resolve: {
                         author: function(authorFactory) {
                             return authorFactory.getAuthor();
+                        },
+                        editTask: function() {
+                            return { edit: "Add" };
                         }
                     }
                 })
@@ -39,7 +42,7 @@
                         article: function(articleFactory) {
                             return articleFactory.getArticle();
                         },
-                        editVar: function() {
+                        editTask: function() {
                             return { edit: "Add" };
                         }
                     }
@@ -52,7 +55,7 @@
                         article: function ($route) {                            
                             return JSON.parse($route.current.params.article);
                         },
-                        editVar: function() {
+                        editTask: function() {
                             return { edit: "Update" };
                         }
                     }
