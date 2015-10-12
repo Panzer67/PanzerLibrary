@@ -1,7 +1,7 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <sec:authorize access="hasRole('ADMIN')">
     <div ng-show="authorCtrl.success" class="form-group">
-        <h3 class="col-sm-offset-3">{{articleCtrl.success}}</h3>
+        <h3 class="col-sm-offset-3">{{authorCtrl.success}}</h3>
     </div>
     <form ng-hide="authorCtrl.success" class="form-horizontal" data-ng-submit="authorCtrl.postForm('author')" name="authorForm" novalidate>
 
@@ -33,6 +33,7 @@
 
             </div>
         </div>
+        <input type="hidden" data-ng-model="authorId" value="{{authorCtrl.author.id}}" >
     </form>
 
 </sec:authorize>

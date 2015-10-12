@@ -9,7 +9,7 @@
 
         vm.postAuthor = function (typeOfForm) {
             if (typeOfForm === 'author') {
-                vm.formData = vm.article;
+                vm.formData = vm.author;
             }
             var response = $http.post('http://localhost:8080/panzerlibrary/edit/add' + typeOfForm, vm.formData);
             response.success(function (response) {

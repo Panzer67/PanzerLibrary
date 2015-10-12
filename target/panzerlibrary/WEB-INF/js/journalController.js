@@ -1,15 +1,15 @@
-(function () {
-    angular.module("PanzerLibrary").controller("authorController", authorController);
-
-    authorController.$inject = ['$http', 'authorFactory', 'author', 'editTask']
-    function authorController($http, authorFactory, author, editTask) {
+(function() {
+    angular.module("PanzerLibrary").controller("journalController", journalController);
+    
+    journalController.$inject = ['$http', 'journalFactory', 'journal', 'editTask'];
+    function journalController($http, journalFactory, journal, editTask) {
         var vm = this;
-        vm.author = author;
+        vm.journal = journal;
         vm.editTask = editTask;
-
-        vm.postAuthor = function (typeOfForm) {
-            if (typeOfForm === 'author') {
-                vm.formData = vm.author;
+        
+        vm.postJournal = function (typeOfForm) {
+            if (typeOfForm === 'journal') {
+                vm.formData = vm.journal;
             }
             var response = $http.post('http://localhost:8080/panzerlibrary/edit/add' + typeOfForm, vm.formData);
             response.success(function (response) {
@@ -21,9 +21,9 @@
             });
         };
 
-        vm.deleteAuthor = function () {
-            var authorId = vm.author.id;
-            var response = $http.post('http://localhost:8080/panzerlibrary/delete/author/' + authorId);
+        vm.deleteJournal = function () {
+            var journalId = vm.journal.id;
+            var response = $http.post('http://localhost:8080/panzerlibrary/delete/journal/' + journalId);
             response.success(function (response) {
                 response = response.message.concat(" deleted");
                 vm.success = response;
@@ -32,8 +32,9 @@
                 alert("error" + err);
             });
         };
-
     }
-
+    
+    
 })();
+
 

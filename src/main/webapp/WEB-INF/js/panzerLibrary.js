@@ -63,8 +63,16 @@
 
                 .when('/journal', {
                     templateUrl: 'journal',
-                    controller: 'editController',
-                    controllerAs: 'editCtrl'
+                    controller: 'journalController',
+                    controllerAs: 'journalCtrl',
+                    resolve: {
+                        journal: function(journalFactory) {
+                            return journalFactory.getJournal();
+                        },
+                        editTask: function() {
+                            return { edit: "Add" };
+                        }
+                    }
                 })
                 .otherwise({
                     redirectTo: '/'
