@@ -73,10 +73,10 @@
         <script src="http://localhost:8080/PanzerLibrary/js/libController.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/searchController.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/authorController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/bookController.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/articleController.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/journalController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/searchFactory.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/editController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/searchFactory.js"></script>        
         <script src="http://localhost:8080/PanzerLibrary/js/authorFactory.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/bookFactory.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/articleFactory.js"></script>

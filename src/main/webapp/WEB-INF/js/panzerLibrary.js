@@ -31,8 +31,16 @@
                 })
                 .when('/book', {
                     templateUrl: 'book',
-                    controller: 'editController',
-                    controllerAs: 'editCtrl'
+                    controller: 'bookController',
+                    controllerAs: 'bookCtrl',
+                    resolve: {
+                        book: function(bookFactory) {
+                            return bookFactory.getBook();
+                        },
+                        editTask: function() {
+                            return { edit: "Add" };
+                        }
+                    }
                 })
                 .when('/article', {
                     templateUrl: 'article',

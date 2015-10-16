@@ -1,37 +1,33 @@
 (function () {
-    angular.module("PanzerLibrary").controller("articleController", articleController);
+    angular.module('PanzerLibrary').controller('bookController', bookController);
 
-    articleController.$inject = ['$http', 'authorFactory', 'articleFactory', 'journalFactory', 'article', 'editTask'];
-    function articleController($http, authorFactory, articleFactory, journalFactory, article, editTask) {
+    bookController.$inject = ['$http', 'book', 'editTask'];
+    function bookController($http, book, editTask) {
         var vm = this;
         vm.editTask = editTask;
-        vm.authors = article.authors;
         
-        vm.journal = article.journal;
-
-        vm.article = article;     
-
-        vm.postArticle = function (typeOfForm) {
-            if (typeOfForm === 'article') {             
-                vm.formData = vm.article;                
+        vm.authors = book.authors;
+        vm.book = book;
+        
+        vm.postBook = function (typeOfForm) {
+            if (typeOfForm === 'book') {                
+                vm.formData = vm.book;
             }
             var response = $http.post('http://localhost:8080/PanzerLibrary/edit/add' + typeOfForm, vm.formData);   
             response.success(function (response) {
                 response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated" ));
-                vm.success = response; 
-               
+                vm.success = response;                
             }).error(function (err) {
                 alert("error" + err);
             });
         };
         
-        vm.deleteArticle = function() {
-            var articleId = vm.article.id;
-            var response = $http.post('http://localhost:8080/PanzerLibrary/delete/article/' + articleId);   
+        vm.deleteBook = function() {
+            var bookId = vm.book.id;
+            var response = $http.post('http://localhost:8080/PanzerLibrary/delete/book/' + bookId);   
             response.success(function (response) {
                 response = response.message.concat(" deleted");
-                vm.success = response; 
-               
+                vm.success = response;                
             }).error(function (err) {
                 alert("error" + err);
             });
@@ -55,5 +51,4 @@
 
 
 })();
-
 

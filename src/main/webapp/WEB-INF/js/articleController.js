@@ -1,7 +1,7 @@
 (function () {
     angular.module("PanzerLibrary").controller("articleController", articleController);
 
-    articleController.$inject = ['$http', 'authorFactory', 'articleFactory', 'journalFactory', 'article', 'editTask']
+    articleController.$inject = ['$http', 'authorFactory', 'articleFactory', 'journalFactory', 'article', 'editTask'];
     function articleController($http, authorFactory, articleFactory, journalFactory, article, editTask) {
         var vm = this;
         vm.editTask = editTask;
@@ -11,7 +11,7 @@
 
         vm.article = article;     
 
-        vm.postForm = function (typeOfForm) {
+        vm.postArticle = function (typeOfForm) {
             if (typeOfForm === 'article') {             
                 vm.formData = vm.article;                
             }

@@ -3,7 +3,7 @@
     <div ng-show="authorCtrl.success" class="form-group">
         <h3 class="col-sm-offset-3">{{authorCtrl.success}}</h3>
     </div>
-    <form ng-hide="authorCtrl.success" class="form-horizontal" data-ng-submit="authorCtrl.postForm('author')" name="authorForm" novalidate>
+    <form ng-hide="authorCtrl.success" class="form-horizontal" data-ng-submit="authorCtrl.postAuthor('author')" name="authorForm" novalidate>
 
         <div class="form-group">
             <h3 class="col-sm-offset-3">New Author</h3>

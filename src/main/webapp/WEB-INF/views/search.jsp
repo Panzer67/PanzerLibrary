@@ -67,7 +67,7 @@
                                         {{article.abstractText}}
                                     </td>
                                     <td>
-                                        <a ng-if="article.pdflink" target="_blank" href="http://localhost:8080/panzerlibrary/pdfs/{{article.pdflink}}.pdf">pdf</a>
+                                        <a ng-if="article.pdflink" target="_blank" href="http://localhost:8080/PanzerLibrary/pdfs/{{article.pdflink}}.pdf">pdf</a>
                                     </td>
                                 </tr>
                             </table> 

@@ -3,7 +3,7 @@
     <div ng-show="journalCtrl.success" class="form-group">
         <h3 class="col-sm-offset-3">{{journalCtrlCtrl.success}}</h3>
     </div>
-<form ng-hide="journalCtrl.success" class="form-horizontal" data-ng-submit="journalCtrl.postForm('journal')" name="journalForm" novalidate>
+<form ng-hide="journalCtrl.success" class="form-horizontal" data-ng-submit="journalCtrl.postJournal('journal')" name="journalForm" novalidate>
     
     <div class="form-group">
         <h3 class="col-sm-offset-3">New Journal</h3>

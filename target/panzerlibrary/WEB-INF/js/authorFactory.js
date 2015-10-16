@@ -19,7 +19,11 @@
         
         factory.getAuthor = function() {
             return author;
-        };       
+        };   
+        
+        factory.getOneExtraAuthor = function() {
+            return author;
+        };
 
         return factory;
     }
