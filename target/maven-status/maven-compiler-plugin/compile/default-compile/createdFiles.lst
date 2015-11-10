@@ -1,3 +1,4 @@
+com\panzerlibrary\controller\PaperController.class
 com\panzerlibrary\dao\ArticleDaoImpl.class
 com\panzerlibrary\dao\BookDao.class
 com\panzerlibrary\controller\LoginController.class
@@ -16,6 +17,7 @@ com\panzerlibrary\service\UserProfileServiceImpl.class
 com\panzerlibrary\configuration\SpringMvcInitializer.class
 com\panzerlibrary\service\UserServiceImpl.class
 com\panzerlibrary\dao\AuthorDaoImpl.class
+com\panzerlibrary\dao\PaperDao.class
 com\panzerlibrary\service\UserProfileService.class
 com\panzerlibrary\model\ResponseMessage.class
 com\panzerlibrary\configuration\SecurityConfiguration.class
@@ -25,6 +27,8 @@ com\panzerlibrary\dao\AbstractDao.class
 com\panzerlibrary\service\CustomUserDetailsService.class
 com\panzerlibrary\model\Author.class
 com\panzerlibrary\configuration\SecurityWebApplicationInitializer.class
+com\panzerlibrary\dao\PaperDaoImpl.class
+com\panzerlibrary\model\Paper.class
 com\panzerlibrary\dao\BookDaoImpl.class
 com\panzerlibrary\dao\UserDaoImpl.class
 com\panzerlibrary\search\BuildSearchIndex.class

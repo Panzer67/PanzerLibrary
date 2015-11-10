@@ -68,7 +68,6 @@
                         }
                     }
                 })
-
                 .when('/journal', {
                     templateUrl: 'journal',
                     controller: 'journalController',
@@ -79,6 +78,19 @@
                         },
                         editTask: function() {
                             return { edit: "Add" };
+                        }
+                    }
+                })
+                .when('/paper', {
+                    templateUrl: 'paper',
+                    controller: 'paperController',
+                    controllerAs: 'paperCtrl',
+                    resolve: {
+                        paper: function(paperFactory) {
+                            return paperFactory.getPaper();
+                        },
+                        editTask: function () {
+                            return {edit: "Add"};
                         }
                     }
                 })

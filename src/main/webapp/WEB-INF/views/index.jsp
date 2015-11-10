@@ -48,7 +48,7 @@
                                     <a href="#/book" class="btn btn-default navbar-btn">Book</a>
                                     <a href="#/article" class="btn btn-default navbar-btn">Article</a>
                                     <a href="#/journal" class="btn btn-default navbar-btn">Journal</a>
-                                    <a href="" class="btn btn-default navbar-btn">Paper</a>
+                                    <a href="#/paper" class="btn btn-default navbar-btn">Paper</a>
                                     <a href="" class="btn btn-default navbar-btn">Document</a>
                                     <a href="http://localhost:8080/PanzerLibrary/edit/newuser" class="btn btn-default navbar-btn">User</a>
                                 </div>
@@ -66,7 +66,6 @@
 
         </div>
 
-
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular-route.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/panzerLibrary.js"></script>        
@@ -81,5 +80,7 @@
         <script src="http://localhost:8080/PanzerLibrary/js/bookFactory.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/articleFactory.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/journalFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/paperController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/paperFactory.js"></script>
     </body>
 </html>

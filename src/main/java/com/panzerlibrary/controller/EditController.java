@@ -183,6 +183,9 @@ public class EditController {
     }
     
     
+    
+    
+    
     @RequestMapping(value = "/journal", method = RequestMethod.GET)
     public ModelAndView displayJournalForm() {
         ModelAndView model = new ModelAndView("formJournal");
