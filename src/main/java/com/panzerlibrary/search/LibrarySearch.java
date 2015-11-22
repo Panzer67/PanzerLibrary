@@ -21,7 +21,7 @@ public class LibrarySearch {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public List searchDatabase(String text) {
+    public List searchArticlesInDatabase(String text) {
 
         FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.openSession());
         Transaction tx = fullTextSession.beginTransaction();
@@ -40,7 +40,32 @@ public class LibrarySearch {
         org.hibernate.Query hibQuery
                 = fullTextSession.createFullTextQuery(query, Article.class);
         
-// execute search
+        // execute search
+        List result = hibQuery.list();
+        
+        return result;
+    }
+    
+    public List searchBooksInDatabase(String text) {
+
+        FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.openSession());
+        Transaction tx = fullTextSession.beginTransaction();
+
+        QueryBuilder qb = fullTextSession.getSearchFactory()
+                .buildQueryBuilder().forEntity(Book.class).get();
+        
+
+        org.apache.lucene.search.Query query
+                = qb
+                .keyword()
+                .onFields("title", "bookAuthors.author_firstname", "bookAuthors.author_lastname", "abstractText")
+                .matching(text)
+                .createQuery();
+
+        org.hibernate.Query hibQuery
+                = fullTextSession.createFullTextQuery(query, Book.class);
+        
+        // execute search
         List result = hibQuery.list();
         
         return result;

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import org.apache.solr.analysis.LowerCaseFilterFactory;
 import org.apache.solr.analysis.SnowballPorterFilterFactory;
 import org.apache.solr.analysis.StandardTokenizerFactory;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.search.annotations.Analyzer;
@@ -47,10 +49,16 @@ public class Author implements Serializable {
     @ManyToMany(mappedBy = "articleAuthors")     
     private List<Article> articles;
 
-    @LazyCollection(LazyCollectionOption.FALSE)    
+    @LazyCollection(LazyCollectionOption.FALSE)   
+    @Fetch(FetchMode.SELECT)
     @ManyToMany(mappedBy = "bookAuthors", fetch = FetchType.EAGER)     
     private List<Book> books;
-
+    
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @Fetch(FetchMode.SELECT)
+    @ManyToMany(mappedBy = "paperAuthors", fetch = FetchType.EAGER)       
+    private List<Paper> papers;
+    
     /*
      @ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
      @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "author_id"), inverseJoinColumns = @JoinColumn(name = "article_id"))	

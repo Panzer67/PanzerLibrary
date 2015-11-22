@@ -11,7 +11,7 @@
                     controller: 'searchController',
                     controllerAs: 'searchCtrl',
                     resolve: {
-                        articles: function (searchFactory, $route) {
+                        searchResults: function (searchFactory, $route) {
                             return searchFactory.getSearch($route.current.params.param);
                         }
                     }

@@ -9,9 +9,14 @@ import com.panzerlibrary.model.Article;
 import com.panzerlibrary.model.Book;
 import com.panzerlibrary.search.LibrarySearch;
 import flexjson.JSONSerializer;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -70,20 +75,42 @@ public class HomeController {
     @ResponseBody
     public String getSearch(@PathVariable("searchString") String searchString) {
 
-        List<Article> searchResults = null;
+        List<Article> searchArticlesResults = null;
+        List<Book> searchBooksResults = null;
+        String searchResults = null;
         try {
-            searchResults = librarySearch.searchDatabase(searchString);
+            searchArticlesResults = librarySearch.searchArticlesInDatabase(searchString);
+            searchBooksResults = librarySearch.searchBooksInDatabase(searchString);
+            Set<Article> checkedArticlesResults = new HashSet<>(searchArticlesResults);
+            Set<Book> checkedBooksResults = new HashSet<>(searchBooksResults);
+            JSONSerializer serializer = new JSONSerializer();
+            String articles = serializer.include("authors").serialize(checkedArticlesResults);
+            String books = serializer.include("authors").serialize(checkedBooksResults);
+            JSONParser jsonParser = new JSONParser();
+            JSONArray arrArticles = (JSONArray) jsonParser.parse(articles);
+            JSONArray arrBooks = (JSONArray) jsonParser.parse(books);
+
+            JSONObject results = new JSONObject();
+            results.put("books", arrBooks);
+            results.put("articles", arrArticles);
+            searchResults = JsonObjectToString(results);
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
 
-        }
-        //remove possible duplicates
-        Set<Article> checkedResults = new HashSet<>(searchResults);
+        }  
 
-        JSONSerializer serializer = new JSONSerializer();
-        return serializer.include("authors").serialize(checkedResults);
+        return searchResults;
 
+
+    }
+    
+    private String JsonObjectToString(JSONObject jsonObject) throws IOException {
+        StringWriter out = new StringWriter();
+        jsonObject.writeJSONString(out);
+        String json = out.toString();
+
+        return json;
     }
 
     private String getPrincipal() {

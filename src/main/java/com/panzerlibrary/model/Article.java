@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import org.apache.solr.analysis.LowerCaseFilterFactory;
 import org.apache.solr.analysis.SnowballPorterFilterFactory;
 import org.apache.solr.analysis.StandardTokenizerFactory;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.search.annotations.Analyzer;
@@ -72,6 +74,7 @@ public class Article implements Serializable {
     private List<Author> articleAuthors;
     
     @IndexedEmbedded
+    @Fetch(FetchMode.SELECT)
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)      
     @JoinColumn(name = "JOURNAL_ID")    
     private Journal journal;
