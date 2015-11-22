@@ -3,6 +3,7 @@ package com.panzerlibrary.search;
 import com.panzerlibrary.model.Article;
 import com.panzerlibrary.model.Author;
 import com.panzerlibrary.model.Book;
+import com.panzerlibrary.model.Paper;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -64,6 +65,31 @@ public class LibrarySearch {
 
         org.hibernate.Query hibQuery
                 = fullTextSession.createFullTextQuery(query, Book.class);
+        
+        // execute search
+        List result = hibQuery.list();
+        
+        return result;
+    }
+    
+    public List searchPapersInDatabase(String text) {
+
+        FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.openSession());
+        Transaction tx = fullTextSession.beginTransaction();
+
+        QueryBuilder qb = fullTextSession.getSearchFactory()
+                .buildQueryBuilder().forEntity(Paper.class).get();
+        
+
+        org.apache.lucene.search.Query query
+                = qb
+                .keyword()
+                .onFields("title", "paperAuthors.author_firstname", "paperAuthors.author_lastname", "abstractText")
+                .matching(text)
+                .createQuery();
+
+        org.hibernate.Query hibQuery
+                = fullTextSession.createFullTextQuery(query, Paper.class);
         
         // execute search
         List result = hibQuery.list();

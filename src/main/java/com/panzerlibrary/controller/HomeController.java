@@ -7,6 +7,7 @@ import com.panzerlibrary.dao.BookDao;
 import com.panzerlibrary.dao.JournalDao;
 import com.panzerlibrary.model.Article;
 import com.panzerlibrary.model.Book;
+import com.panzerlibrary.model.Paper;
 import com.panzerlibrary.search.LibrarySearch;
 import flexjson.JSONSerializer;
 import java.io.IOException;
@@ -77,22 +78,28 @@ public class HomeController {
 
         List<Article> searchArticlesResults = null;
         List<Book> searchBooksResults = null;
+        List<Paper> searchPapersResults = null;
         String searchResults = null;
         try {
             searchArticlesResults = librarySearch.searchArticlesInDatabase(searchString);
             searchBooksResults = librarySearch.searchBooksInDatabase(searchString);
+            searchPapersResults = librarySearch.searchPapersInDatabase(searchString);
             Set<Article> checkedArticlesResults = new HashSet<>(searchArticlesResults);
             Set<Book> checkedBooksResults = new HashSet<>(searchBooksResults);
+            Set<Paper> checkedPapersResults = new HashSet<>(searchPapersResults);
             JSONSerializer serializer = new JSONSerializer();
             String articles = serializer.include("authors").serialize(checkedArticlesResults);
             String books = serializer.include("authors").serialize(checkedBooksResults);
+            String papers = serializer.include("authors").serialize(checkedPapersResults);
             JSONParser jsonParser = new JSONParser();
             JSONArray arrArticles = (JSONArray) jsonParser.parse(articles);
             JSONArray arrBooks = (JSONArray) jsonParser.parse(books);
+            JSONArray arrPapers = (JSONArray) jsonParser.parse(papers);
 
             JSONObject results = new JSONObject();
             results.put("books", arrBooks);
             results.put("articles", arrArticles);
+            results.put("papers", arrPapers);
             searchResults = JsonObjectToString(results);
 
         } catch (Exception ex) {
@@ -101,7 +108,6 @@ public class HomeController {
         }  
 
         return searchResults;
-
 
     }
     

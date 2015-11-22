@@ -12,11 +12,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import org.apache.solr.analysis.LowerCaseFilterFactory;
+import org.apache.solr.analysis.SnowballPorterFilterFactory;
+import org.apache.solr.analysis.StandardTokenizerFactory;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+import org.hibernate.search.annotations.Analyzer;
+import org.hibernate.search.annotations.AnalyzerDef;
+import org.hibernate.search.annotations.Parameter;
+import org.hibernate.search.annotations.TokenFilterDef;
+import org.hibernate.search.annotations.TokenizerDef;
 
 @Entity
 @Table(name = "PAPERS")
+@AnalyzerDef(name = "paperAnalyzer",
+  tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class),
+  filters = {
+    @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+    @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = {
+      @Parameter(name = "language", value = "English")
+    })
+  })
 public class Paper implements Serializable {
     
     @Id
@@ -24,6 +40,7 @@ public class Paper implements Serializable {
     @Column(name = "PAPER_ID")
     private int id;
     
+    @Analyzer(definition = "paperAnalyzer")
     private String title;
     
     private String institute;
@@ -32,6 +49,7 @@ public class Paper implements Serializable {
     
     private String pages;
     
+    @Analyzer(definition = "paperAnalyzer")
     private String abstractText;
     
     private String pdflink;
