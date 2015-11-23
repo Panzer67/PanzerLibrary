@@ -19,11 +19,15 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.search.annotations.Analyzer;
 import org.hibernate.search.annotations.AnalyzerDef;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Parameter;
 import org.hibernate.search.annotations.TokenFilterDef;
 import org.hibernate.search.annotations.TokenizerDef;
 
 @Entity
+@Indexed
 @Table(name = "PAPERS")
 @AnalyzerDef(name = "paperAnalyzer",
   tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class),
@@ -40,6 +44,7 @@ public class Paper implements Serializable {
     @Column(name = "PAPER_ID")
     private int id;
     
+    @Field
     @Analyzer(definition = "paperAnalyzer")
     private String title;
     
@@ -49,11 +54,13 @@ public class Paper implements Serializable {
     
     private String pages;
     
+    @Field
     @Analyzer(definition = "paperAnalyzer")
     private String abstractText;
     
     private String pdflink;
     
+    @IndexedEmbedded(depth = 1)
     @ManyToMany(cascade = CascadeType.ALL)
     @LazyCollection(LazyCollectionOption.FALSE)     
     @JoinTable(name = "authors_papers", joinColumns = @JoinColumn(name = "paper_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))    
