@@ -109,4 +109,12 @@ public class Author implements Serializable {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+    public List<Paper> getPapers() {
+        return papers;
+    }
+
+    public void setPapers(List<Paper> papers) {
+        this.papers = papers;
+    }
 }

@@ -96,4 +96,29 @@ public class LibrarySearch {
         
         return result;
     }
+    
+    public List searchAuthorsInDatabase(String text) {
+
+        FullTextSession fullTextSession = Search.getFullTextSession(sessionFactory.openSession());
+        Transaction tx = fullTextSession.beginTransaction();
+
+        QueryBuilder qb = fullTextSession.getSearchFactory()
+                .buildQueryBuilder().forEntity(Author.class).get();
+        
+
+        org.apache.lucene.search.Query query
+                = qb
+                .keyword()
+                .onFields("author_firstname", "author_lastname")
+                .matching(text)
+                .createQuery();
+
+        org.hibernate.Query hibQuery
+                = fullTextSession.createFullTextQuery(query, Author.class);
+        
+        // execute search
+        List result = hibQuery.list();
+        
+        return result;
+    }
 }

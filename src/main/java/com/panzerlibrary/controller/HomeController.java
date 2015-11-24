@@ -6,6 +6,7 @@ import com.panzerlibrary.dao.AuthorDao;
 import com.panzerlibrary.dao.BookDao;
 import com.panzerlibrary.dao.JournalDao;
 import com.panzerlibrary.model.Article;
+import com.panzerlibrary.model.Author;
 import com.panzerlibrary.model.Book;
 import com.panzerlibrary.model.Paper;
 import com.panzerlibrary.search.LibrarySearch;
@@ -79,27 +80,33 @@ public class HomeController {
         List<Article> searchArticlesResults = null;
         List<Book> searchBooksResults = null;
         List<Paper> searchPapersResults = null;
+        List<Author> searchAuthorsResults = null;
         String searchResults = null;
         try {
             searchArticlesResults = librarySearch.searchArticlesInDatabase(searchString);
             searchBooksResults = librarySearch.searchBooksInDatabase(searchString);
             searchPapersResults = librarySearch.searchPapersInDatabase(searchString);
+            searchAuthorsResults = librarySearch.searchAuthorsInDatabase(searchString);
             Set<Article> checkedArticlesResults = new HashSet<>(searchArticlesResults);
             Set<Book> checkedBooksResults = new HashSet<>(searchBooksResults);
             Set<Paper> checkedPapersResults = new HashSet<>(searchPapersResults);
+            Set<Author> checkedAuthorsResults = new HashSet<>(searchAuthorsResults);
             JSONSerializer serializer = new JSONSerializer();
             String articles = serializer.include("authors").serialize(checkedArticlesResults);
             String books = serializer.include("authors").serialize(checkedBooksResults);
             String papers = serializer.include("authors").serialize(checkedPapersResults);
+            String authors = serializer.include("books").include("articles").include("papers").serialize(checkedAuthorsResults);
             JSONParser jsonParser = new JSONParser();
             JSONArray arrArticles = (JSONArray) jsonParser.parse(articles);
             JSONArray arrBooks = (JSONArray) jsonParser.parse(books);
             JSONArray arrPapers = (JSONArray) jsonParser.parse(papers);
+            JSONArray arrAuthors = (JSONArray) jsonParser.parse(authors);
 
             JSONObject results = new JSONObject();
             results.put("books", arrBooks);
             results.put("articles", arrArticles);
             results.put("papers", arrPapers);
+            results.put("authors", arrAuthors);
             searchResults = JsonObjectToString(results);
 
         } catch (Exception ex) {

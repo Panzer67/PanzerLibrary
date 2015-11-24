@@ -7,7 +7,7 @@
             <button class="btn btn-default navbar-btn" ng-disabled="{{searchCtrl.searchResults.papers.length == 0}}" ng-click="form = 3" >({{searchCtrl.searchResults.papers.length}}) Papers</button>
             <button class="btn btn-default navbar-btn" ng-disabled="true" ng-click="form = 4" >() Documents</button>
             <button class="btn btn-default navbar-btn" ng-disabled="true" ng-click="form = 5" >() Journals</button>
-            <button class="btn btn-default navbar-btn" ng-disabled="true" ng-click="form = 6" >() Authors</button>
+            <button class="btn btn-default navbar-btn" ng-disabled="{{searchCtrl.searchResults.authors.length == 0}}" ng-click="form = 6" >({{searchCtrl.searchResults.authors.length}}) Authors</button>
         </div>
     </div>
     <div ng-show="form == 1" class="col-md-8 col-md-offset-2">
@@ -62,7 +62,7 @@
                                     <td>
                                         {{book.year}}
                                     </td>
-                                    <td>
+                                    <td align="justify">
                                         {{book.abstractText}}
                                     </td>
                                     <td>
@@ -141,7 +141,7 @@
                                         <td>
                                             {{article.pages}}
                                         </td>
-                                        <td>
+                                        <td align="justify">
                                             {{article.abstractText}}
                                         </td>
                                         <td>
@@ -208,7 +208,7 @@
                                         <td>
                                             {{paper.pages}}
                                         </td>
-                                        <td>
+                                        <td align="justify">
                                             {{paper.abstractText}}
                                         </td>
                                         <td>
@@ -217,6 +217,52 @@
                                     </tr>
                                 </table> 
                             <sec:authorize access="hasRole('ADMIN')"><a href="#/paper/{{paper}}">Edit</a></sec:authorize>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div ng-show="form == 6" class="col-md-8 col-md-offset-2">
+            <div ng-show="searchCtrl.searchResults.authors">
+                <div class="panel-heading"><h3>Authors</h3></div>
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="author in searchCtrl.searchResults.authors">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                {{$index + 1}}.&nbsp;
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" onclick="return false;" href="#authorresult{{$index + 1}}" aria-expanded="true" aria-controls="collapseOne">
+                                    {{author.author_firstname }} {{author.author_lastname}}
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="authorresult{{$index + 1}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <table class="table table-bordered table-hover">
+                                    <tr>                                                
+                                        <td>
+                                            Books
+                                        </td> 
+                                        <td>
+                                            Articles
+                                        </td>                                        
+                                        <td>
+                                            Papers
+                                        </td>                                        
+                                    </tr>
+                                    <tr> 
+                                        <td>
+                                            {{author.books.length}}
+                                        </td>                                        
+                                        <td>
+                                            {{author.articles.length}}
+                                        </td>
+                                        <td>
+                                            {{author.papers.length}}
+                                        </td>                                        
+                                    </tr>
+                                </table> 
+                            <sec:authorize access="hasRole('ADMIN')"><a href="#/author/{{author}}">Edit</a></sec:authorize>
                         </div>
                     </div>
                 </div> 
