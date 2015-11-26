@@ -1,8 +1,8 @@
 (function () {
     angular.module('PanzerLibrary').controller('bookController', bookController);
 
-    bookController.$inject = ['$http', 'book', 'editTask'];
-    function bookController($http, book, editTask) {
+    bookController.$inject = ['$http', 'book', 'editTask', 'GLOBALS'];
+    function bookController($http, book, editTask, GLOBALS) {
         var vm = this;
         vm.editTask = editTask;
         
@@ -13,7 +13,7 @@
             if (typeOfForm === 'book') {                
                 vm.formData = vm.book;
             }
-            var response = $http.post('http://localhost:8080/PanzerLibrary/edit/add' + typeOfForm, vm.formData);   
+            var response = $http.post(GLOBALS.baseUrl + '/edit/add' + typeOfForm, vm.formData);   
             response.success(function (response) {
                 response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated" ));
                 vm.success = response;                
@@ -24,7 +24,7 @@
         
         vm.deleteBook = function() {
             var bookId = vm.book.id;
-            var response = $http.post('http://localhost:8080/PanzerLibrary/delete/book/' + bookId);   
+            var response = $http.post(GLOBALS.baseUrl + '/delete/book/' + bookId);   
             response.success(function (response) {
                 response = response.message.concat(" deleted");
                 vm.success = response;                

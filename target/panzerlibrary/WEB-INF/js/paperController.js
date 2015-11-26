@@ -1,8 +1,8 @@
 (function() {
     angular.module("PanzerLibrary").controller("paperController", paperController);
     
-    paperController.$inject = ['$http', 'paper', 'editTask'];
-    function paperController($http, paper, editTask) {
+    paperController.$inject = ['$http', 'paper', 'editTask', 'GLOBALS'];
+    function paperController($http, paper, editTask, GLOBALS) {
         var vm = this;
         vm.editTask = editTask;
         vm.authors = paper.authors;
@@ -13,7 +13,7 @@
             if (typeOfForm === 'paper') {
                 vm.formData = vm.paper;
             }
-            var response = $http.post('http://localhost:8080/PanzerLibrary/edit/add' + typeOfForm, vm.formData);
+            var response = $http.post(GLOBALS.baseUrl + '/edit/add' + typeOfForm, vm.formData);
             response.success(function (response) {
                 response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated"));
                 vm.success = response;

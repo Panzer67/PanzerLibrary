@@ -43,13 +43,13 @@
                         <ul class="nav navbar-nav navbar-left nav-pills">
                             <li><h4 class="navbar-text">Edit forms:</h4></li>
                             <li><div class="btn-group" role="group">
-                                    <a href="#/author" class="btn btn-default navbar-btn">Author</a>
-                                    <a href="#/book" class="btn btn-default navbar-btn">Book</a>
-                                    <a href="#/article" class="btn btn-default navbar-btn">Article</a>
-                                    <a href="#/journal" class="btn btn-default navbar-btn">Journal</a>
-                                    <a href="#/paper" class="btn btn-default navbar-btn">Paper</a>
+                                    <a href="{{libCtrl.authorUrl}}" class="btn btn-default navbar-btn">Author</a>
+                                    <a href="{{libCtrl.bookUrl}}" class="btn btn-default navbar-btn">Book</a>
+                                    <a href="{{libCtrl.articleUrl}}" class="btn btn-default navbar-btn">Article</a>
+                                    <a href="{{libCtrl.journalUrl}}" class="btn btn-default navbar-btn">Journal</a>
+                                    <a href="{{libCtrl.paperUrl}}" class="btn btn-default navbar-btn">Paper</a>
                                     <a href="" class="btn btn-default navbar-btn">Document</a>
-                                    <a href="http://localhost:8080/PanzerLibrary/edit/newuser" class="btn btn-default navbar-btn">User</a>
+                                    <a href="{{libCtrl.baseUrl}}/edit/newuser" class="btn btn-default navbar-btn">User</a>
                                 </div>
                             </li>
                         </ul>
@@ -82,5 +82,6 @@
         <script src="http://localhost:8080/PanzerLibrary/js/journalFactory.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/paperController.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/paperFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/constanten.js"></script>
     </body>
 </html>

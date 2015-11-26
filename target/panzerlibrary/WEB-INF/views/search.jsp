@@ -66,11 +66,11 @@
                                         {{book.abstractText}}
                                     </td>
                                     <td>
-                                        <a ng-if="book.pdflink" target="_blank" href="http://localhost:8080/PanzerLibrary/pdfs/{{book.pdflink}}.pdf">pdf</a>
+                                        <a ng-if="book.pdflink" target="_blank" href="{{libCtrl.baseUrl}}/pdfs/{{book.pdflink}}.pdf">pdf</a>
                                     </td>
                                 </tr>
                             </table> 
-                            <sec:authorize access="hasRole('ADMIN')"><a href="#/book/{{book}}">Edit</a></sec:authorize>
+                            <sec:authorize access="hasRole('ADMIN')"><a href="{{libCtrl.bookUrl}}/{{book}}">Edit</a></sec:authorize>
                             </div>
                         </div>
                     </div> 
@@ -145,11 +145,11 @@
                                             {{article.abstractText}}
                                         </td>
                                         <td>
-                                            <a ng-if="article.pdflink" target="_blank" href="http://localhost:8080/PanzerLibrary/pdfs/{{article.pdflink}}.pdf">pdf</a>
+                                            <a ng-if="article.pdflink" target="_blank" href="{{libCtrl.baseUrl}}/pdfs/{{article.pdflink}}.pdf">pdf</a>
                                         </td>
                                     </tr>
                                 </table> 
-                            <sec:authorize access="hasRole('ADMIN')"><a href="#/article/{{article}}">Edit</a></sec:authorize>
+                            <sec:authorize access="hasRole('ADMIN')"><a href="{{libCtrl.articleUrl}}/{{article}}">Edit</a></sec:authorize>
                             </div>
                         </div>
                     </div> 
@@ -212,11 +212,11 @@
                                             {{paper.abstractText}}
                                         </td>
                                         <td>
-                                            <a ng-if="paper.pdflink" target="_blank" href="http://localhost:8080/PanzerLibrary/pdfs/{{paper.pdflink}}.pdf">pdf</a>
+                                            <a ng-if="paper.pdflink" target="_blank" href="{{libCtrl.baseUrl}}/pdfs/{{paper.pdflink}}.pdf">pdf</a>
                                         </td>
                                     </tr>
                                 </table> 
-                            <sec:authorize access="hasRole('ADMIN')"><a href="#/paper/{{paper}}">Edit</a></sec:authorize>
+                            <sec:authorize access="hasRole('ADMIN')"><a href="{{libCtrl.paperUrl}}/{{paper}}">Edit</a></sec:authorize>
                             </div>
                         </div>
                     </div> 
@@ -262,7 +262,7 @@
                                         </td>                                        
                                     </tr>
                                 </table> 
-                            <sec:authorize access="hasRole('ADMIN')"><a href="#/author/{{author}}">Edit</a></sec:authorize>
+                            <sec:authorize access="hasRole('ADMIN')"><a href="{{libCtrl.authorUrl}}/{{author}}">Edit</a></sec:authorize>
                         </div>
                     </div>
                 </div> 

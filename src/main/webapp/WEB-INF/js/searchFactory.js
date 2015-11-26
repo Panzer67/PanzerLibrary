@@ -1,14 +1,14 @@
 (function() {
     angular.module('PanzerLibrary').factory('searchFactory', searchFactory);
     
-    searchFactory.$inject = ['$http', '$q', '$timeout', '$log'];
-    function searchFactory($http, $q, $timeout, $log) {
+    searchFactory.$inject = ['$http', '$q', '$timeout', '$log', 'GLOBALS'];
+    function searchFactory($http, $q, $timeout, $log, GLOBALS) {
         var factory = {};
 
         
         factory.getSearch = function(searchInput) {
             var deferred = $q.defer();
-            $http.get('http://localhost:8080/PanzerLibrary/search/' + searchInput)
+            $http.get(GLOBALS.baseUrl + '/search/' + searchInput)
                     .success(function(data) {
                         deferred.resolve(data);
             }).error(function(msg) {
