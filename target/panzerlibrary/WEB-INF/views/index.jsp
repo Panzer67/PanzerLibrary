@@ -10,8 +10,7 @@
         <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/style.css">        
-        <script src="http://localhost:8080/PanzerLibrary/js/jquery.min.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/bootstrap.min.js"></script>    
+        
         <base href="/PanzerLibrary/" />
         <title>PanzerLibrary</title>
     </head>
@@ -65,9 +64,10 @@
         <div class="container-fluid" ng-view>
 
         </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.17/angular-route.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/jquery.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/bootstrap.min.js"></script>    
+        <script src="http://localhost:8080/PanzerLibrary/js/angular1315.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/angular-route.min.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/panzerLibrary.js"></script>        
         <script src="http://localhost:8080/PanzerLibrary/js/libController.js"></script>
         <script src="http://localhost:8080/PanzerLibrary/js/searchController.js"></script>
