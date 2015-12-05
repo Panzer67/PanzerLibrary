@@ -1,5 +1,5 @@
 (function () {
-    angular.module('PanzerLibrary', ['ngRoute']).config(moduleConfig);
+    angular.module('PanzerLibrary', ['ngRoute', 'ngFileUpload', 'ngAnimate', 'ui.bootstrap']).config(moduleConfig);
 
     moduleConfig.$inject = ['$routeProvider'];
 

@@ -1,12 +1,12 @@
 (function () {
     angular.module("PanzerLibrary").controller("articleController", articleController);
 
-    articleController.$inject = ['$http', 'article', 'editTask', 'GLOBALS'];
-    function articleController($http, article, editTask, GLOBALS) {
+    articleController.$inject = ['$http', 'article', 'editTask', 'GLOBALS', 'Upload', '$timeout'];
+    function articleController($http, article, editTask, GLOBALS, Upload, $timeout) {
         var vm = this;
+        vm.progress = 0;
         vm.editTask = editTask;
-        vm.authors = article.authors;
-        
+        vm.authors = article.authors;        
         vm.journal = article.journal;
 
         vm.article = article;     
@@ -36,6 +36,39 @@
                 alert("error" + err);
             });
         };
+        
+        vm.uploadFiles = function (file) {     
+            vm.f = file; 
+            
+            vm.article.pdflink = vm.helper(file.name);
+            
+            if (file) {
+                file.upload = Upload.upload({
+                    url: GLOBALS.baseUrl + '/singleUpload',
+                    file: file   
+                });
+                file.upload.then(function (response) {
+                    $timeout(function () {
+                        file.result = response.data;
+                        vm.result = response.data;
+                    });
+                }, function (response) {
+                    if (response.status > 0) {
+                        vm.errorMsg = response.status + ': ' + response.data;
+                    }  
+                }, function (evt) {                    
+                    vm.progress = Math.min(100, parseInt(100.0 *  evt.loaded / evt.total));                    
+                });
+            }            
+        };
+        
+        vm.helper = function(text) {
+            var linkStr = String(text).replace(/\s*/mg, "");
+            linkStr = linkStr.replace(/\.*/mg, "");
+            linkStr = linkStr.substring(0, linkStr.length -3);
+            return linkStr;
+        };
+        
         
         vm.addExtraAuthorInput = function () {
             var author = {

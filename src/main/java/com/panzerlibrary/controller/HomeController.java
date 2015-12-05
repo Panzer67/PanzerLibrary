@@ -16,6 +16,8 @@ import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -31,6 +33,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
+    
+    private static final Logger log = Logger.getLogger(HomeController.class.getName());
 
     @Autowired
     private AuthorDao authorDao;
@@ -54,17 +58,6 @@ public class HomeController {
 
         return model;
     }
-
-//    @RequestMapping(value = "/search/{title}", method = RequestMethod.GET) 
-//    @ResponseBody
-//    public String getBooks(@PathVariable("title") String title) {
-//        List<Book> bookList = bookDao.getBookByTitle(title);
-//        
-//        
-//        JSONSerializer serializer = new JSONSerializer(); 
-//        return serializer.include("authors").serialize( bookList );
-//        
-//    }
     
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public ModelAndView displaySearch() {
@@ -110,10 +103,8 @@ public class HomeController {
             searchResults = JsonObjectToString(results);
 
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-
-        }  
-
+            log.log( Level.SEVERE, ex.getMessage());
+        } 
         return searchResults;
 
     }

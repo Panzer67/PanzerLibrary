@@ -75,10 +75,19 @@
         <div class="form-group">
             <label for="inputPdflink" class="col-sm-3 control-label">PDF link:</label>
             <div class="col-sm-6">
-                <input ng-model="articleCtrl.article.pdflink" name="pdflink" type="text" class="form-control" id="inputPdflink" placeholder="PDF link" required>
-                <span ng-show="articleForm.$submitted || articleForm.pdflink.$touched">
-                    <span class="error" ng-show="articleForm.pdflink.$error.required">Field required</span>
-                </span>
+                <input ng-model="articleCtrl.article.pdflink" name="pdflink" type="text" class="form-control" id="inputPdflink" placeholder="PDF link" >
+                
+            </div>
+        </div>
+        <div class="for-group">
+            <label for="uploadFile" class="col-sm-3 control-label">
+                <button ng-disabled="articleCtrl.progress === 100" class="btn btn-success btn-xs" type="file" ngf-select="articleCtrl.uploadFiles($file, $invalidFiles)"
+                     accept=".pdf" ngf-max-height="1000" ngf-max-size="100MB" required>Select File
+                </button>
+            </label>
+            <div class="col-sm-6">
+                <uib-progressbar value="articleCtrl.progress"><b>{{articleCtrl.progress}}%</b></uib-progressbar> 
+                <p>{{articleCtrl.result.message}}</p>
             </div>
         </div>
         <div class="form-group">
