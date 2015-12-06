@@ -39,7 +39,8 @@
         
         vm.uploadFiles = function (file) {     
             vm.f = file; 
-            
+            file.name = vm.helper(file.name);
+            console.log(file);
             vm.article.pdflink = vm.helper(file.name);
             
             if (file) {

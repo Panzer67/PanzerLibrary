@@ -27,6 +27,7 @@ com\panzerlibrary\dao\UserDao.class
 com\panzerlibrary\controller\AuthorController.class
 com\panzerlibrary\controller\HomeController.class
 com\panzerlibrary\controller\JournalController.class
+com\panzerlibrary\util\Helper.class
 com\panzerlibrary\dao\ArticleDaoImpl.class
 com\panzerlibrary\controller\LoginController.class
 com\panzerlibrary\dao\AuthorDao.class

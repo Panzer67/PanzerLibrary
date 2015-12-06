@@ -9,7 +9,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/style.css">        
+        <link rel="stylesheet" href="http://localhost:8080/PanzerLibrary/css/style.css">    
+        <script src="http://localhost:8080/PanzerLibrary/js/jquery.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/bootstrap.min.js"></script>    
+        <script src="http://localhost:8080/PanzerLibrary/js/angular.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/angular-route.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/angular-animate.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/ui-bootstrap-tpls-0.14.3.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/ng-file-upload-all.min.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/panzerLibrary.js"></script>        
+        <script src="http://localhost:8080/PanzerLibrary/js/libController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/searchController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/searchFactory.js"></script>       
+        <script src="http://localhost:8080/PanzerLibrary/js/authorController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/authorFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/bookController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/bookFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/articleController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/articleFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/journalController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/journalFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/paperController.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/paperFactory.js"></script>
+        <script src="http://localhost:8080/PanzerLibrary/js/constanten.js"></script>
         
         <base href="/PanzerLibrary/" />
         <title>PanzerLibrary</title>
@@ -64,27 +86,6 @@
         <div class="container-fluid" ng-view>
 
         </div>
-        <script src="http://localhost:8080/PanzerLibrary/js/jquery.min.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/bootstrap.min.js"></script>    
-        <script src="http://localhost:8080/PanzerLibrary/js/angular.min.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/angular-route.min.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/angular-animate.min.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/ui-bootstrap-tpls-0.14.3.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/ng-file-upload-all.min.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/panzerLibrary.js"></script>        
-        <script src="http://localhost:8080/PanzerLibrary/js/libController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/searchController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/searchFactory.js"></script>       
-        <script src="http://localhost:8080/PanzerLibrary/js/authorController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/authorFactory.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/bookController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/bookFactory.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/articleController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/articleFactory.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/journalController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/journalFactory.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/paperController.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/paperFactory.js"></script>
-        <script src="http://localhost:8080/PanzerLibrary/js/constanten.js"></script>
+        
     </body>
 </html>
