@@ -3,7 +3,7 @@ package com.panzerlibrary.controller;
 
 import com.panzerlibrary.dao.JournalDao;
 import com.panzerlibrary.model.Journal;
-import com.panzerlibrary.model.ResponseMessage;
+import com.panzerlibrary.model.ResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,12 +27,12 @@ public class JournalController {
     
     @RequestMapping(value = "edit/addjournal", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public ResponseMessage addNewJournal(@RequestBody Journal journal) {
+    public ResponseObject addNewJournal(@RequestBody Journal journal) {
         if(journalDao.checkJournalByName(journal.getJournal_name())) {
-            return new ResponseMessage("Journal already exists");
+            return new ResponseObject("Journal already exists");
         }        
         journalDao.saveOrUpdate(journal);
         
-        return new ResponseMessage("Journal susseccfully added");
+        return new ResponseObject("Journal susseccfully added");
     }
 }

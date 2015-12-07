@@ -13,7 +13,6 @@ com\panzerlibrary\service\UserServiceImpl.class
 com\panzerlibrary\controller\UserController.class
 com\panzerlibrary\dao\PaperDao.class
 com\panzerlibrary\service\UserProfileService.class
-com\panzerlibrary\model\ResponseMessage.class
 com\panzerlibrary\configuration\SecurityConfiguration.class
 com\panzerlibrary\dao\ArticleDao.class
 com\panzerlibrary\model\Author.class
@@ -42,6 +41,7 @@ com\panzerlibrary\controller\FileUploadController.class
 com\panzerlibrary\dao\AbstractDao.class
 com\panzerlibrary\service\CustomUserDetailsService.class
 com\panzerlibrary\dao\PaperDaoImpl.class
+com\panzerlibrary\model\ResponseObject.class
 com\panzerlibrary\dao\BookDaoImpl.class
 com\panzerlibrary\search\BuildSearchIndex.class
 com\panzerlibrary\model\Article.class

@@ -7,7 +7,7 @@ import com.panzerlibrary.dao.JournalDao;
 import com.panzerlibrary.model.Article;
 import com.panzerlibrary.model.Author;
 import com.panzerlibrary.model.Journal;
-import com.panzerlibrary.model.ResponseMessage;
+import com.panzerlibrary.model.ResponseObject;
 import flexjson.JSONSerializer;
 import java.io.File;
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class ArticleController {
 
     @RequestMapping(value = "/edit/addarticle", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public ResponseMessage addUpdateArticle(@RequestBody Article article) {
+    public ResponseObject addUpdateArticle(@RequestBody Article article) {
     
         List<Author> authors = article.getAuthors();
         List<Author> checkedAuthors = new ArrayList();
@@ -81,15 +81,15 @@ public class ArticleController {
 
         articleDao.saveOrUpdate(article);
 
-        return new ResponseMessage("Article successfully");
+        return new ResponseObject("Article successfully");
     }
 
     @RequestMapping(value = "/delete/article/{articleId}", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public ResponseMessage deleteArticle(@PathVariable("articleId") int articleId) {
+    public ResponseObject deleteArticle(@PathVariable("articleId") int articleId) {
         articleDao.delete(articleId);
         
-        return new ResponseMessage("Article successfully");
+        return new ResponseObject("Article successfully");
     }
     
 }

@@ -1,7 +1,7 @@
 package com.panzerlibrary.controller;
 
 import com.panzerlibrary.model.FileBucket;
-import com.panzerlibrary.model.ResponseMessage;
+import com.panzerlibrary.model.ResponseObject;
 import com.panzerlibrary.util.FileValidator;
 import com.panzerlibrary.util.Helper;
 import java.io.File;
@@ -38,27 +38,23 @@ public class FileUploadController {
 
     @RequestMapping(value = "/singleUpload", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseMessage singleFileUpload(@Valid FileBucket fileBucket, BindingResult result) {
+    public ResponseObject singleFileUpload(@Valid FileBucket fileBucket, BindingResult result) {
 
         if (result.hasErrors()) {
             log.log(Level.SEVERE, "File validation errors");
-            return new ResponseMessage("validation errors");
+            return new ResponseObject("validation errors");
         } else {
             try {
-                MultipartFile multipartFile = fileBucket.getFile();
-
-                //Now do something with file...
-                File uploadFile = new File(UPLOAD_LOCATION + fileBucket.getFile().getOriginalFilename());
-                File renamedFile = new File(UPLOAD_LOCATION + Helper.properFilenameMaker(uploadFile.getName()));
-                FileCopyUtils.copy(fileBucket.getFile().getBytes(), uploadFile);
-                FileUtils.moveFile(uploadFile, renamedFile);
-                String fileName = multipartFile.getOriginalFilename();
-
-                return new ResponseMessage("Successful upload of " + fileName);
+                
+                String filename = fileBucket.getFile().getOriginalFilename();                
+                File renamedFile = new File(UPLOAD_LOCATION + Helper.properFilenameMaker(filename));
+                FileCopyUtils.copy(fileBucket.getFile().getBytes(), renamedFile);               
+               
+                return new ResponseObject("Successful upload of " + filename, renamedFile.getName());
 
             } catch (IOException e) {
                 log.log(Level.SEVERE, e.getMessage());
-                return new ResponseMessage("Upload unsuccessful");
+                return new ResponseObject("Upload unsuccessful");
             }
         }
     }

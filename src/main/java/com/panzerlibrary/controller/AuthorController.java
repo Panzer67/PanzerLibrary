@@ -3,7 +3,7 @@ package com.panzerlibrary.controller;
 
 import com.panzerlibrary.dao.AuthorDao;
 import com.panzerlibrary.model.Author;
-import com.panzerlibrary.model.ResponseMessage;
+import com.panzerlibrary.model.ResponseObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,13 +27,13 @@ public class AuthorController {
     
     @RequestMapping(value = "edit/addauthor", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public ResponseMessage addNewAuthor(@RequestBody Author author) {
+    public ResponseObject addNewAuthor(@RequestBody Author author) {
         if (authorDao.checkAuthorByName(author.getAuthor_firstname(), author.getAuthor_lastname())) {
-            return new ResponseMessage("Author already exist.");
+            return new ResponseObject("Author already exist.");
         }
         authorDao.saveOrUpdate(author);
 
-        return new ResponseMessage("Author successfully added.");
+        return new ResponseObject("Author successfully added.");
 
     }  
 }

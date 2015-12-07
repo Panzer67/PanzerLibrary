@@ -9,7 +9,8 @@
         vm.authors = article.authors;        
         vm.journal = article.journal;
 
-        vm.article = article;     
+        vm.article = article;
+        vm.article.pdflink = (editTask.edit === "Add") ? "" : article.pdflink;
 
         vm.postArticle = function (typeOfForm) {
             if (typeOfForm === 'article') {             
@@ -39,9 +40,7 @@
         
         vm.uploadFiles = function (file) {     
             vm.f = file; 
-            file.name = vm.helper(file.name);
-            console.log(file);
-            vm.article.pdflink = vm.helper(file.name);
+            console.log(file);            
             
             if (file) {
                 file.upload = Upload.upload({
@@ -52,6 +51,7 @@
                     $timeout(function () {
                         file.result = response.data;
                         vm.result = response.data;
+                        vm.article.pdflink = response.data.filename;
                     });
                 }, function (response) {
                     if (response.status > 0) {
@@ -62,14 +62,6 @@
                 });
             }            
         };
-        
-        vm.helper = function(text) {
-            var linkStr = String(text).replace(/\s*/mg, "");
-            linkStr = linkStr.replace(/\.*/mg, "");
-            linkStr = linkStr.substring(0, linkStr.length -3);
-            return linkStr;
-        };
-        
         
         vm.addExtraAuthorInput = function () {
             var author = {

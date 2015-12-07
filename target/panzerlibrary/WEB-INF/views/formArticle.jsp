@@ -75,7 +75,7 @@
         <div class="form-group">
             <label for="inputPdflink" class="col-sm-3 control-label">PDF link:</label>
             <div class="col-sm-6">
-                <input ng-model="articleCtrl.article.pdflink" name="pdflink" type="text" class="form-control" id="inputPdflink" placeholder="PDF link" >
+                <input ng-disabled="articleCtrl.editTask.edit === 'Add'" ng-model="articleCtrl.article.pdflink" name="pdflink" type="text" class="form-control" id="inputPdflink" placeholder="PDF link" >
                 
             </div>
         </div>

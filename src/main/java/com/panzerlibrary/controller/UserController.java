@@ -9,7 +9,7 @@ import com.panzerlibrary.model.Article;
 import com.panzerlibrary.model.Author;
 import com.panzerlibrary.model.Book;
 import com.panzerlibrary.model.Journal;
-import com.panzerlibrary.model.ResponseMessage;
+import com.panzerlibrary.model.ResponseObject;
 import com.panzerlibrary.model.User;
 import com.panzerlibrary.model.UserProfile;
 import com.panzerlibrary.service.UserProfileService;

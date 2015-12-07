@@ -6,7 +6,7 @@ import com.panzerlibrary.dao.AuthorDao;
 import com.panzerlibrary.dao.PaperDao;
 import com.panzerlibrary.model.Author;
 import com.panzerlibrary.model.Paper;
-import com.panzerlibrary.model.ResponseMessage;
+import com.panzerlibrary.model.ResponseObject;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class PaperController {
 
     @RequestMapping(value = "edit/addpaper", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public ResponseMessage addNewAuthor(@RequestBody Paper paper) {        
+    public ResponseObject addNewAuthor(@RequestBody Paper paper) {        
         List<Author> authors = paper.getAuthors();
         List<Author> checkedAuthors = new ArrayList<>();
         for (Author author : authors) {
@@ -46,7 +46,7 @@ public class PaperController {
         
         paperDao.saveOrUpdate(paper);
 
-        return new ResponseMessage("Paper successfully added.");
+        return new ResponseObject("Paper successfully added.");
     }
     
 }

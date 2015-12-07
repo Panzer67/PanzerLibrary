@@ -22,6 +22,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -32,21 +34,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@PropertySource(value = {"classpath:application.properties"})
 public class HomeController {
     
     private static final Logger log = Logger.getLogger(HomeController.class.getName());
-
+    
     @Autowired
-    private AuthorDao authorDao;
-
-    @Autowired
-    private BookDao bookDao;
-
-    @Autowired
-    private ArticleDao articleDao;
-
-    @Autowired
-    private JournalDao journalDao;
+    private Environment environment;    
 
     @Autowired
     private LibrarySearch librarySearch;
@@ -55,7 +49,8 @@ public class HomeController {
     public ModelAndView displayHome() {
         ModelAndView model = new ModelAndView("index");
         model.addObject("user", getPrincipal());
-
+        model.addObject("url", environment.getRequiredProperty("application.url"));
+        
         return model;
     }
     

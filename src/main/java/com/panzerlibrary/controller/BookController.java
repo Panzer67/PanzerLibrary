@@ -5,7 +5,7 @@ import com.panzerlibrary.dao.AuthorDao;
 import com.panzerlibrary.dao.BookDao;
 import com.panzerlibrary.model.Author;
 import com.panzerlibrary.model.Book;
-import com.panzerlibrary.model.ResponseMessage;
+import com.panzerlibrary.model.ResponseObject;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class BookController {
     
     @RequestMapping(value = "edit/addbook", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public ResponseMessage addNewBook(@RequestBody Book book) {
+    public ResponseObject addNewBook(@RequestBody Book book) {
         List<Author> authors = book.getAuthors();
         List<Author> checkedAuthors = new ArrayList<>();
         for (Author author : authors) {
@@ -44,6 +44,6 @@ public class BookController {
         book.setAuthors(checkedAuthors);
         bookDao.saveOrUpdate(book);
 
-        return new ResponseMessage("Book successfully added.");
+        return new ResponseObject("Book successfully added.");
     }
 }
