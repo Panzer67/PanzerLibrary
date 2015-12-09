@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="for-group">
-            <label for="uploadFile" class="col-sm-3 control-label">
+            <label for="uploadFile" class="col-sm-3 control-label">   
                 <button ng-disabled="articleCtrl.progress === 100" class="btn btn-success btn-xs" type="file" ngf-select="articleCtrl.uploadFiles($file, $invalidFiles)"
                      accept=".pdf" ngf-max-height="1000" ngf-max-size="100MB" required>Select File
                 </button>

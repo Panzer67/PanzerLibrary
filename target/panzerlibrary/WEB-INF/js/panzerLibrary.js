@@ -90,7 +90,7 @@
                             return paperFactory.getPaper();
                         },
                         editTask: function () {
-                            return {edit: "Add"};
+                            return { edit: "Add" };
                         }
                     }
                 })

@@ -1,9 +1,9 @@
 (function () {
     angular.module("PanzerLibrary").controller('libController', libController);
     
-    libController.$inject = ['$location', 'GLOBALS'];
-    function libController($location, GLOBALS) {
-        var vm = this;
+    libController.$inject = ['$location', 'GLOBALS',  'Upload', '$timeout'];
+    function libController($location, GLOBALS, Upload, $timeout) {
+        var vm = this;        
         vm.baseUrl = GLOBALS.baseUrl;
         vm.authorUrl = GLOBALS.authorUrl;
         vm.bookUrl = GLOBALS.bookUrl;
@@ -13,8 +13,7 @@
         vm.search = function (input) {
             $location.path("search/" + input);
             
-        };   
-        
+        };  
         
 //        vm.addExtraAuthorInput = function () {
 //            var author = {

@@ -55,6 +55,23 @@
             </div>
         </div>
         <div class="form-group">
+            <label for="inputPdflink" class="col-sm-3 control-label">PDF link:</label>
+            <div class="col-sm-6">
+                <input ng-disabled="bookCtrl.editTask.edit === 'Add'" ng-model="bookCtrl.book.pdflink" name="pdflink" type="text" class="form-control" id="inputPdflink" placeholder="PDF link" >                
+            </div>
+        </div>
+        <div class="for-group">
+            <label for="uploadFile" class="col-sm-3 control-label">   
+                <button ng-disabled="bookCtrl.progress === 100" class="btn btn-success btn-xs" type="file" ngf-select="bookCtrl.uploadFiles($file, $invalidFiles)"
+                     accept=".pdf" ngf-max-height="1000" ngf-max-size="100MB" required>Select File
+                </button>
+            </label>
+            <div class="col-sm-6">
+                <uib-progressbar value="bookCtrl.progress"><b>{{bookCtrl.progress}}%</b></uib-progressbar> 
+                <p>{{bookCtrl.result.message}}</p>
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-sm-offset-3 col-sm-3">
 
                 <span class="">Author(s)</span>
