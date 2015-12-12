@@ -29,11 +29,11 @@ public class AuthorController {
     @ResponseBody
     public ResponseObject addNewAuthor(@RequestBody Author author) {
         if (authorDao.checkAuthorByName(author.getAuthor_firstname(), author.getAuthor_lastname())) {
-            return new ResponseObject("Author already exist.");
+            return new ResponseObject("authorExists");
         }
         authorDao.saveOrUpdate(author);
 
-        return new ResponseObject("Author successfully added.");
+        return new ResponseObject("authorAdded");
 
     }  
 }

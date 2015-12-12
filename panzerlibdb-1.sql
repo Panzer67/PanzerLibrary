@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2015 at 09:47 PM
+-- Generation Time: Dec 11, 2015 at 08:49 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -35,15 +35,15 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `year` year(4) NOT NULL,
   `pages` varchar(20) NOT NULL,
   `abstracttext` text NOT NULL,
-  `pdflink` varchar(200) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
+  `pdflink` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `articles`
 --
 
 INSERT INTO `articles` (`article_id`, `journal_id`, `title`, `volume`, `issue`, `year`, `pages`, `abstracttext`, `pdflink`) VALUES
-(3, 3, 'Tjeerd is de Beste van Allemaal', 12, 1, 1999, '277-299', '', ''),
+(3, 3, 'Tjeerd is de Beste van Allemaal', 12, 1, 1999, '277-299', 'A large literature assumes that alliances entangle the United States in military conflicts that it might otherwise avoid. Since 1945, however, there have been only five cases of what might be characterized as U.S. entanglement—the 1954 and 1995–96 Taiwan Strait crises, the Vietnam War, and the interventions in Bosnia and Kosovo in the 1990s—and even these cases are far from clear-cut. U.S. entanglement is rare because the United States, as a superpower with many allies, is capable of exploiting loopholes in alliance agreements, sidestepping commitments that seriously imperil U.S. interests, playing the demands of various allies off of each other, and using alliances to deter adversaries and allies from initiating or escalating conflicts.', ''),
 (4, 4, '4-D Soviet Style: Defence, Development, Diplomacy and Disengagement in Afghanistan During the Soviet Period Part I:State Building', 23, 2, 2010, '306-327', 'Soviet Union Afghanistan Cold War ', '4d_soviet_style_defence_development_diplomacy_and_disengagement_in_Afghanistan_during_the_soviet_period_part_i_state_building'),
 (8, 5, 'Java programming', 22, 3, 2004, '22-55', '', ''),
 (16, 6, 'On Nuclear Warfare', 13, 3, 1956, '20-60', 'Nukes nuclear warfare strategy deterrence Soviet-Union United States Reagan', ''),
@@ -75,7 +75,23 @@ INSERT INTO `articles` (`article_id`, `journal_id`, `title`, `volume`, `issue`, 
 (75, 26, 'Sleeping Karma', 3, 1, 1996, '33-99', 'tjeerd', 'tjeerd'),
 (76, 26, 'Sleeping Karma', 3, 1, 1985, '33-99', 'tjeerd', 'tjeerd'),
 (77, 26, 'Sleeping Karma', 2, 1, 1985, '33-99', 'tjeerd', 'tjeerd'),
-(78, 22, 'Tegenlichten', 3, 1, 2002, '33-99', 'tjeerd', 'tegenlicht');
+(78, 22, 'Tegenlichten', 3, 1, 2002, '33-99', 'tjeerd', 'tegenlicht'),
+(79, 26, 'gdfgdfg', 3, 2, 2000, '43', 'dfgdfg', 'tjeerd'),
+(80, 26, 'fdgfdg', 3, 2, 2000, '33-99', 'dgdf', 'tjeerd'),
+(81, 30, 'Typetjes4444', 3, 2, 1999, '33-99', 'hgfh', 'tjeerd'),
+(82, 33, 'Typetjes4444', 3, 2, 2000, '33-99', 'gg', 'tjeerd'),
+(83, 26, 'hfghfghggg', 3, 1, 2000, '33-99', 'gg', 'tjeerd'),
+(84, 22, 'dfhfghfghfgh', 3, 2, 2000, '33-99', 'tgdfg', 'tjeerd'),
+(85, 22, 'Typetjes444466', 3, 2, 2001, '33-99', 'tgdfg', 'tjeerd'),
+(86, 26, 'qqq666', 2, 1, 2000, '33-99', 'ffddf', 'tjeerd'),
+(87, 26, 'Geen idee meer rrr', 3, 2, 1982, '33-99', 'fdggdfg', 'tjeerd'),
+(88, 24, 'War and Politics', 2, 3, 2000, '33-99', 'tggg', 'tjeerd'),
+(89, 26, 'gdfgdfg', 2, 1, 2000, '33-99', 'dsfdsf', 'tjeerd'),
+(90, 26, 'gdfgdfg', 3, 2, 2000, '33-99', 'gfdg', 'tjeerd'),
+(91, 26, 'fgdfdg', 3, 2, 2000, '33-99', 'ffff', 'tjeerd'),
+(92, 26, 'Tegenlichtbbb', 3, 2, 2000, '33-99', 'dfdg', 'tjeerd'),
+(93, 26, 'Tegenlichtbbbdfgdg', 3, 3, 2000, '33-99', 'esf', 'tjeerd'),
+(94, 26, 'fghfghfgh', 3, 1, 1999, '33-99', 'dfgdgf', 'tjeerd');
 
 -- --------------------------------------------------------
 
@@ -87,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
 `author_id` int(11) NOT NULL,
   `author_firstname` varchar(100) NOT NULL,
   `author_lastname` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `authors`
@@ -142,7 +158,9 @@ INSERT INTO `authors` (`author_id`, `author_firstname`, `author_lastname`) VALUE
 (64, 'Gerrit', 'Pukkelmans'),
 (65, 'Herbert F.', 'York'),
 (66, 'Henk', 'Pietersen'),
-(68, 'John', 'Gray');
+(68, 'John', 'Gray'),
+(69, 'Gerrit', 'Nieuwenhuisen'),
+(70, '', '');
 
 -- --------------------------------------------------------
 
@@ -195,7 +213,23 @@ INSERT INTO `authors_articles` (`author_id`, `article_id`) VALUES
 (1, 75),
 (1, 76),
 (1, 77),
-(1, 78);
+(1, 78),
+(70, 79),
+(1, 80),
+(1, 81),
+(1, 82),
+(1, 83),
+(1, 84),
+(1, 85),
+(1, 86),
+(1, 87),
+(1, 88),
+(1, 89),
+(1, 90),
+(1, 91),
+(1, 92),
+(1, 93),
+(1, 94);
 
 -- --------------------------------------------------------
 
@@ -277,6 +311,28 @@ INSERT INTO `authors_books` (`author_id`, `book_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `authors_papers`
+--
+
+CREATE TABLE IF NOT EXISTS `authors_papers` (
+  `author_id` int(11) NOT NULL DEFAULT '0',
+  `paper_id` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `authors_papers`
+--
+
+INSERT INTO `authors_papers` (`author_id`, `paper_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `books`
 --
 
@@ -286,69 +342,83 @@ CREATE TABLE IF NOT EXISTS `books` (
   `title` varchar(255) NOT NULL,
   `publisher` varchar(100) NOT NULL,
   `year` year(4) NOT NULL,
-  `abstracttext` text NOT NULL
+  `abstracttext` text NOT NULL,
+  `pdflink` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `isbn`, `title`, `publisher`, `year`, `abstracttext`) VALUES
-(7, '9783456778456', 'Teddybeer', 'Nieuwenhuis', 1955, ''),
-(20, '9780198782513', 'Modern Strategy', 'OUP Oxford (14 Oct. 1999)', 2003, ''),
-(21, '9780199325153', 'Stratey: A History', 'OUP USA (31 Oct. 2013)', 0000, ''),
-(22, '9780452010710', 'Strategy', 'Penguin; 2nd Ed edition (April 1991)', 0000, ''),
-(23, '9780521155243', 'The Evolution of Strategy: Thinking War from Antiquity to the Present', 'Cambridge University Press (14 Oct. 2010)', 0000, ''),
-(24, '9789814350815', 'The Direction of War: Contemporary Strategy in Historical Perspective', 'Cambridge University Press (5 Dec. 2013)', 0000, ''),
-(27, '9780521546577', 'Supplying War: Logistics from Wallenstein to Patton', 'Cambridge University Press', 0000, ''),
-(28, '9780006860525', 'The Rise and Fall of the Great Powers: Economic Change and Military Conflict from 1500-2000', 'Fontana Press', 0000, ''),
-(29, '9781846684180', 'War: What is it good for?: The role of conflict in civilisation, from primates to robots', 'Profile Books', 0000, ''),
-(36, '9780141978529', 'De Geschiedenis van Alles', 'Nieuwenhuis', 0000, ''),
-(39, '9782345074839', 'De Nieuwe Orde', 'Nieuwenhuis', 0000, ''),
-(40, '9785643948520', 'A Real Story about People', 'Nieuwenhuis', 0000, ''),
-(41, '9781234857321', 'JDBC', 'Nieuwenhuis', 0000, ''),
-(42, '9781234759302', 'Hallo Wereld', 'Nieuwenhuis', 0000, ''),
-(43, '9783454652932', 'JDBC(2)', 'Nieuwenhuis', 0000, ''),
-(44, '9781239548302', 'Hallo Oorlog', 'Nieuwenhuis', 0000, ''),
-(46, '9782340485301', 'Dikke shit', 'Nieuwenhuis', 0000, ''),
-(48, '9784324958438', 'New World Art', 'Nieuwenhuis', 0000, ''),
-(52, '9784435963666', 'The beginning and the end of the World is Art', 'Nieuwenhuis', 2011, ''),
-(53, '9781294832904', 'Causa Sui', 'Nieuwenhuis', 2013, ''),
-(54, '9781294832555', 'Destroying the World in 15 seconds', 'Nieuwenhuis', 1999, ''),
-(55, '9781294832557', 'Pitten', 'Nieuwenhuis', 2000, ''),
-(56, '9781294832557', 'Typetjes', 'Nieuwenhuis', 2000, ''),
-(57, '9781294832557', 'Dingen', 'Nieuwenhuis', 2000, ''),
-(58, '9781294832904', 'Nog meer dingen', 'Nieuwenhuis', 2000, ''),
-(59, '9781294832557', 'Vogels', 'Nieuwenhuis', 2000, ''),
-(60, '9781294832904', 'Strand', 'Nieuwenhuis', 1997, ''),
-(61, '9781294832904', 'Clausewitz under Fire', 'Nieuwenhuis', 2013, ''),
-(62, '2349853452922', 'Black Swords', 'Nieuwenhuis', 2013, ''),
-(63, '9781294832933', 'Needle Gun', 'Nieuwenhuis', 1970, ''),
-(64, '9781294832938', 'Panzer', 'Nieuwenhuis', 1982, ''),
-(65, '9781294832944', 'Poes', 'Nieuwenhuis', 1988, ''),
-(66, '9781294832904', 'Typetjes 6', 'Nieuwenhuis', 2000, ''),
-(67, '9781294832938', 'poesjes', 'Nieuwenhuis', 1988, ''),
-(68, '9781294832933', 'gdfgfg', 'Nieuwenhuis', 2004, ''),
-(69, '9781294832933', 'gdfgfg', 'Nieuwenhuis', 2005, ''),
-(70, '9781294832933', 'gdfgfg', 'Nieuwenhuis', 2005, ''),
-(71, '9781294832557', 'gfhfgh', 'Nieuwenhuis', 1999, ''),
-(72, '9781294832557', 'fghfgh', 'Nieuwenhuis', 2013, ''),
-(73, '9781294832904', 'poesjes', 'Nieuwenhuis', 1970, ''),
-(74, '765436897', 'Nieuw book', 'Nieuwenhuis', 2000, ''),
-(76, '9875543678654', 'gdsdfgfdg', 'Nieuwenhuis', 2000, ''),
-(77, '9781294832557', 'Typetjes 666', 'Nieuwenhuis', 1970, 'gfdgfdg'),
-(78, '9781294832557', 'Pittenfff', 'Nieuwenhuis', 2000, 'deterrence'),
-(79, '2349853452966', 'rt', 'Nieuwenhuis', 2000, 'deterrence'),
-(80, '9781294832904', 'lol2', 'Nieuwenhuis', 2000, 'deterrence'),
-(81, '9781294832904', 'lol', 'Nieuwenhuis', 2000, 'deterrence'),
-(82, '9781294832904', 'lol1', 'Nieuwenhuis', 2000, 'lol1'),
-(83, '9781294832999', 'lol', 'Pieterman', 1996, 'lol deterrence nuclearwar war strategy'),
-(84, '2349853452999', 'lol3', 'Nieuwenhuis', 1982, 'deterrence'),
-(85, '2349853452922', 'lol4', 'Nieuwenhuis', 1996, 'deterrence'),
-(86, '9781294832904', 'lol5', 'Nieuwenhuis', 1996, 'deterrence strategy'),
-(87, '9781294832933', 'lol6 war', 'Nieuwenhuis', 1988, 'deterrence nuclear war strategy'),
-(88, '2349853452922', 'lol7 deterrence', 'Nieuwenhuis', 1970, 'lol deterrence war nuclear'),
-(89, '9781294832904', 'Teddyberen', 'Nieuwenhuis', 1996, 'lol deterrence teddyberen');
+INSERT INTO `books` (`book_id`, `isbn`, `title`, `publisher`, `year`, `abstracttext`, `pdflink`) VALUES
+(7, '9783456778456', 'Teddybeer', 'Nieuwenhuis', 1955, '', NULL),
+(20, '9780198782513', 'Modern Strategy', 'OUP Oxford (14 Oct. 1999)', 2003, '', NULL),
+(21, '9780199325153', 'Stratey: A History', 'OUP USA (31 Oct. 2013)', 0000, '', NULL),
+(22, '9780452010710', 'Strategy', 'Penguin; 2nd Ed edition (April 1991)', 0000, '', NULL),
+(23, '9780521155243', 'The Evolution of Strategy: Thinking War from Antiquity to the Present', 'Cambridge University Press (14 Oct. 2010)', 0000, '', NULL),
+(24, '9789814350815', 'The Direction of War: Contemporary Strategy in Historical Perspective', 'Cambridge University Press (5 Dec. 2013)', 0000, '', NULL),
+(27, '9780521546577', 'Supplying War: Logistics from Wallenstein to Patton', 'Cambridge University Press', 0000, '', NULL),
+(28, '9780006860525', 'The Rise and Fall of the Great Powers: Economic Change and Military Conflict from 1500-2000', 'Fontana Press', 0000, '', NULL),
+(29, '9781846684180', 'War: What is it good for?: The role of conflict in civilisation, from primates to robots', 'Profile Books', 0000, '', NULL),
+(36, '9780141978529', 'De Geschiedenis van Alles', 'Nieuwenhuis', 0000, '', NULL),
+(39, '9782345074839', 'De Nieuwe Orde', 'Nieuwenhuis', 0000, '', NULL),
+(40, '9785643948520', 'A Real Story about People', 'Nieuwenhuis', 0000, '', NULL),
+(41, '9781234857321', 'JDBC', 'Nieuwenhuis', 0000, '', NULL),
+(42, '9781234759302', 'Hallo Wereld', 'Nieuwenhuis', 0000, '', NULL),
+(43, '9783454652932', 'Java Database Connections', 'Nieuwenhuis', 0000, '', NULL),
+(44, '9781239548302', 'Hallo Oorlog', 'Nieuwenhuis', 0000, '', NULL),
+(46, '9782340485301', 'Dikke shit', 'Nieuwenhuis', 0000, '', NULL),
+(48, '9784324958438', 'New World Art', 'Nieuwenhuis', 0000, '', NULL),
+(52, '9784435963666', 'The beginning and the end of the World is Art', 'Nieuwenhuis', 2011, '', NULL),
+(53, '9781294832904', 'Causa Sui', 'Nieuwenhuis', 2013, '', NULL),
+(54, '9781294832555', 'Destroying the World in 15 seconds', 'Nieuwenhuis', 1999, '', NULL),
+(55, '9781294832557', 'Pitten', 'Nieuwenhuis', 2000, '', NULL),
+(56, '9781294832557', 'Typetjes', 'Nieuwenhuis', 2000, '', NULL),
+(57, '9781294832557', 'Dingen', 'Nieuwenhuis', 2000, '', NULL),
+(58, '9781294832904', 'Nog meer dingen', 'Nieuwenhuis', 2000, '', NULL),
+(59, '9781294832557', 'Vogels', 'Nieuwenhuis', 2000, '', NULL),
+(60, '9781294832904', 'Strand', 'Nieuwenhuis', 1997, '', NULL),
+(61, '9781294832904', 'Clausewitz under Fire', 'Nieuwenhuis', 2013, '', NULL),
+(62, '2349853452922', 'Black Swords', 'Nieuwenhuis', 2013, '', NULL),
+(63, '9781294832933', 'Needle Gun', 'Nieuwenhuis', 1970, '', NULL),
+(64, '9781294832938', 'Panzer', 'Nieuwenhuis', 1982, '', NULL),
+(65, '9781294832944', 'Poes', 'Nieuwenhuis', 1988, '', NULL),
+(66, '9781294832904', 'Typetjes 6', 'Nieuwenhuis', 2000, '', NULL),
+(67, '9781294832938', 'poesjes', 'Nieuwenhuis', 1988, '', NULL),
+(68, '9781294832933', 'gdfgfg', 'Nieuwenhuis', 2004, '', NULL),
+(69, '9781294832933', 'gdfgfg', 'Nieuwenhuis', 2005, '', NULL),
+(70, '9781294832933', 'gdfgfg', 'Nieuwenhuis', 2005, '', NULL),
+(71, '9781294832557', 'gfhfgh', 'Nieuwenhuis', 1999, '', NULL),
+(72, '9781294832557', 'fghfgh', 'Nieuwenhuis', 2013, '', NULL),
+(73, '9781294832904', 'poesjes', 'Nieuwenhuis', 1970, '', NULL),
+(74, '765436897', 'Nieuw book', 'Nieuwenhuis', 2000, '', NULL),
+(76, '9875543678654', 'gdsdfgfdg', 'Nieuwenhuis', 2000, '', NULL),
+(77, '9781294832557', 'Typetjes 666', 'Nieuwenhuis', 1970, 'gfdgfdg', NULL),
+(78, '9781294832557', 'Pittenfff', 'Nieuwenhuis', 2000, 'deterrence', NULL),
+(79, '2349853452966', 'rt', 'Nieuwenhuis', 2000, 'deterrence', NULL),
+(80, '9781294832904', 'lol2', 'Nieuwenhuis', 2000, 'deterrence', NULL),
+(81, '9781294832904', 'lol', 'Nieuwenhuis', 2000, 'deterrence', NULL),
+(82, '9781294832904', 'lol1', 'Nieuwenhuis', 2000, 'lol1', NULL),
+(83, '9781294832999', 'lol', 'Pieterman', 1996, 'lol deterrence nuclearwar war strategy', NULL),
+(84, '2349853452999', 'lol3', 'Nieuwenhuis', 1982, 'deterrence', NULL),
+(85, '2349853452922', 'lol4', 'Nieuwenhuis', 1996, 'deterrence', NULL),
+(86, '9781294832904', 'lol5', 'Nieuwenhuis', 1996, 'deterrence strategy', NULL),
+(87, '9781294832933', 'lol6 war', 'Nieuwenhuis', 1988, 'deterrence nuclear war strategy', NULL),
+(88, '2349853452922', 'lol7 deterrence', 'Nieuwenhuis', 1970, 'lol deterrence war nuclear', NULL),
+(89, '9781294832904', 'Teddyberen', 'Nieuwenhuis', 1996, 'lol deterrence teddyberen', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `documents`
+--
+
+CREATE TABLE IF NOT EXISTS `documents` (
+`document_id` int(11) NOT NULL,
+  `title` varchar(140) NOT NULL,
+  `abstractText` text NOT NULL,
+  `pdflink` varchar(140) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -359,7 +429,7 @@ INSERT INTO `books` (`book_id`, `isbn`, `title`, `publisher`, `year`, `abstractt
 CREATE TABLE IF NOT EXISTS `journals` (
 `journal_id` int(11) NOT NULL,
   `journal_name` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `journals`
@@ -390,7 +460,36 @@ INSERT INTO `journals` (`journal_id`, `journal_name`) VALUES
 (26, 'Journal for Tjeerdism'),
 (27, 'Journal for Tjeerdism and more'),
 (30, 'The Journal of Military History'),
-(31, 'Daedalus');
+(31, 'Daedalus'),
+(32, 'Journal for super awesome stuff'),
+(33, 'Journal for Absolutely nothing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `papers`
+--
+
+CREATE TABLE IF NOT EXISTS `papers` (
+`paper_id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE latin1_bin NOT NULL,
+  `institute` varchar(200) COLLATE latin1_bin NOT NULL,
+  `year` year(4) NOT NULL,
+  `pages` varchar(20) COLLATE latin1_bin NOT NULL,
+  `abstractText` text COLLATE latin1_bin NOT NULL,
+  `pdflink` varchar(200) COLLATE latin1_bin DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `papers`
+--
+
+INSERT INTO `papers` (`paper_id`, `title`, `institute`, `year`, `pages`, `abstractText`, `pdflink`) VALUES
+(1, 'new paper', 'Institute of Tjeerdism', 1985, '33-99', 'tjeerd deterrence', ''),
+(2, 'Tegenlicht', 'Institute of Panzerism', 2000, '33-99', 'tjeerd space soviet', ''),
+(3, 'sdfsdfsdf', 'Institute of Tjeerdism', 2000, '33-99', 'sdfsdfsdf', ''),
+(4, 'Black Ships and Pirates', 'Institute of Tjeerdism', 2000, '33-99', 'fdhfgh', ''),
+(5, 'fdgdfg', 'Institute of Tjeerdism', 2002, '43', 'tff', '');
 
 -- --------------------------------------------------------
 
@@ -484,11 +583,12 @@ ALTER TABLE `authors_articles`
 ALTER TABLE `authors_books`
  ADD PRIMARY KEY (`author_id`,`book_id`), ADD KEY `book_id` (`book_id`);
  
- --
+--
 -- Indexes for table `authors_papers`
 --
 ALTER TABLE `authors_papers`
  ADD PRIMARY KEY (`author_id`,`paper_id`), ADD KEY `paper_id` (`paper_id`);
+
 
 --
 -- Indexes for table `books`
@@ -497,10 +597,22 @@ ALTER TABLE `books`
  ADD PRIMARY KEY (`book_id`), ADD KEY `isbn` (`isbn`);
 
 --
+-- Indexes for table `documents`
+--
+ALTER TABLE `documents`
+ ADD PRIMARY KEY (`document_id`);
+
+--
 -- Indexes for table `journals`
 --
 ALTER TABLE `journals`
  ADD PRIMARY KEY (`journal_id`);
+
+--
+-- Indexes for table `papers`
+--
+ALTER TABLE `papers`
+ ADD PRIMARY KEY (`paper_id`);
 
 --
 -- Indexes for table `users`
@@ -528,22 +640,32 @@ ALTER TABLE `user_profile`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=79;
+MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=69;
+MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
 MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=90;
 --
+-- AUTO_INCREMENT for table `documents`
+--
+ALTER TABLE `documents`
+MODIFY `document_id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `journals`
 --
 ALTER TABLE `journals`
-MODIFY `journal_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+MODIFY `journal_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT for table `papers`
+--
+ALTER TABLE `papers`
+MODIFY `paper_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --

@@ -5,7 +5,6 @@
 
     function moduleConfig($routeProvider) {
         $routeProvider
-
                 .when('/search/:param', {
                     templateUrl: 'search',
                     controller: 'searchController',
@@ -21,11 +20,11 @@
                     controller: 'authorController',
                     controllerAs: 'authorCtrl',
                     resolve: {
-                        author: function(authorFactory) {
+                        author: function (authorFactory) {
                             return authorFactory.getAuthor();
                         },
-                        editTask: function() {
-                            return { edit: "Add" };
+                        editTask: function () {
+                            return {edit: "Add"};
                         }
                     }
                 })
@@ -34,11 +33,11 @@
                     controller: 'bookController',
                     controllerAs: 'bookCtrl',
                     resolve: {
-                        book: function(bookFactory) {
+                        book: function (bookFactory) {
                             return bookFactory.getBook();
                         },
-                        editTask: function() {
-                            return { edit: "Add" };
+                        editTask: function () {
+                            return {edit: "Add"};
                         }
                     }
                 })
@@ -47,11 +46,11 @@
                     controller: 'articleController',
                     controllerAs: 'articleCtrl',
                     resolve: {
-                        article: function(articleFactory) {
+                        article: function (articleFactory) {
                             return articleFactory.getArticle();
                         },
-                        editTask: function() {
-                            return { edit: "Add" };
+                        editTask: function () {
+                            return {edit: "Add"};
                         }
                     }
                 })
@@ -60,11 +59,11 @@
                     controller: 'articleController',
                     controllerAs: 'articleCtrl',
                     resolve: {
-                        article: function ($route) {                            
+                        article: function ($route) {
                             return JSON.parse($route.current.params.article);
                         },
-                        editTask: function() {
-                            return { edit: "Update" };
+                        editTask: function () {
+                            return {edit: "Update"};
                         }
                     }
                 })
@@ -73,11 +72,11 @@
                     controller: 'journalController',
                     controllerAs: 'journalCtrl',
                     resolve: {
-                        journal: function(journalFactory) {
+                        journal: function (journalFactory) {
                             return journalFactory.getJournal();
                         },
-                        editTask: function() {
-                            return { edit: "Add" };
+                        editTask: function () {
+                            return {edit: "Add"};
                         }
                     }
                 })
@@ -86,11 +85,21 @@
                     controller: 'paperController',
                     controllerAs: 'paperCtrl',
                     resolve: {
-                        paper: function(paperFactory) {
+                        paper: function (paperFactory) {
                             return paperFactory.getPaper();
                         },
                         editTask: function () {
-                            return { edit: "Add" };
+                            return {edit: "Add"};
+                        }
+                    }
+                })
+                .when('/edit/:param', {
+                    templateUrl: 'editmessage',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
+                    resolve: {
+                        message: function(messageFactory, $route) {
+                            return messageFactory.getMessage($route.current.params.param);
                         }
                     }
                 })

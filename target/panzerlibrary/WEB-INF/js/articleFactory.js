@@ -32,10 +32,6 @@
         };
 
         factory.getArticle = function () {
-            return article;
-        };
-
-        factory.getEmptyArticle = function () {
             article.title = "";
             article.authors = [{
                     "author_firstname": "",
@@ -50,6 +46,7 @@
             article.pages = "";
             article.abstractText = "";
             article.pdflink = "";
+            return article;
         };
 
         return factory;

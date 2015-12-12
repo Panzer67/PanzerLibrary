@@ -1,8 +1,8 @@
 (function() {
     angular.module("PanzerLibrary").controller("journalController", journalController);
     
-    journalController.$inject = ['$http', 'journalFactory', 'journal', 'editTask', 'GLOBALS'];
-    function journalController($http, journalFactory, journal, editTask, GLOBALS) {
+    journalController.$inject = ['$http', '$location', 'journal', 'editTask', 'GLOBALS'];
+    function journalController($http, $location, journal, editTask, GLOBALS) {
         var vm = this;
         vm.journal = journal;
         vm.editTask = editTask;
@@ -13,9 +13,7 @@
             }
             var response = $http.post(GLOBALS.baseUrl + '/edit/add' + typeOfForm, vm.formData);
             response.success(function (response) {
-                response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated"));
-                vm.success = response;
-
+               $location.path("edit/" + response.message); 
             }).error(function (err) {
                 alert("error" + err);
             });
@@ -25,9 +23,7 @@
             var journalId = vm.journal.id;
             var response = $http.post(GLOBALS.baseUrl + '/delete/journal/' + journalId);
             response.success(function (response) {
-                response = response.message.concat(" deleted");
-                vm.success = response;
-
+                $location.path("edit/" + response.message); 
             }).error(function (err) {
                 alert("error" + err);
             });

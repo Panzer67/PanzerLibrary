@@ -29,10 +29,10 @@ public class JournalController {
     @ResponseBody
     public ResponseObject addNewJournal(@RequestBody Journal journal) {
         if(journalDao.checkJournalByName(journal.getJournal_name())) {
-            return new ResponseObject("Journal already exists");
+            return new ResponseObject("journalExists");
         }        
         journalDao.saveOrUpdate(journal);
         
-        return new ResponseObject("Journal susseccfully added");
+        return new ResponseObject("journalAdded");
     }
 }

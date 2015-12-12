@@ -66,7 +66,9 @@ public class Book implements Serializable {
     @Field
     @Analyzer(definition = "customanalyzer")
     private String abstractText;
-
+        
+    private String pdflink;
+    
     /*
      @LazyCollection(LazyCollectionOption.FALSE)
      @ManyToMany(mappedBy = "authorBooks",  cascade = CascadeType.ALL)
@@ -132,5 +134,13 @@ public class Book implements Serializable {
 
     public void setAbstractText(String abstractText) {
         this.abstractText = abstractText;
+    }
+
+    public String getPdflink() {
+        return pdflink;
+    }
+
+    public void setPdflink(String pdflink) {
+        this.pdflink = pdflink;
     }
 }

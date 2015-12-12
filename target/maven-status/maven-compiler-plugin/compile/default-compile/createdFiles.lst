@@ -45,6 +45,7 @@ com\panzerlibrary\model\ResponseObject.class
 com\panzerlibrary\dao\BookDaoImpl.class
 com\panzerlibrary\search\BuildSearchIndex.class
 com\panzerlibrary\model\Article.class
+com\panzerlibrary\controller\editController.class
 com\panzerlibrary\util\FileValidator.class
 com\panzerlibrary\dao\JournalDao.class
 com\panzerlibrary\configuration\RoleToUserProfileConverter.class

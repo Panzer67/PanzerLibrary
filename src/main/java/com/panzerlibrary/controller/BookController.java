@@ -44,6 +44,6 @@ public class BookController {
         book.setAuthors(checkedAuthors);
         bookDao.saveOrUpdate(book);
 
-        return new ResponseObject("Book successfully added.");
+        return new ResponseObject("bookAdded.");
     }
 }

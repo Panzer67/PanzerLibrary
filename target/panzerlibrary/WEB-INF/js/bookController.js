@@ -1,8 +1,8 @@
 (function () {
     angular.module('PanzerLibrary').controller('bookController', bookController);
 
-    bookController.$inject = ['$http', 'book', 'editTask', 'GLOBALS', 'Upload', '$timeout'];
-    function bookController($http, book, editTask, GLOBALS, Upload, $timeout) {
+    bookController.$inject = ['$http','$location', 'book', 'editTask', 'GLOBALS', 'Upload', '$timeout'];
+    function bookController($http, $location, book, editTask, GLOBALS, Upload, $timeout) {
         var vm = this;
         vm.progress = 0;
         vm.editTask = editTask;
@@ -17,8 +17,7 @@
             }
             var response = $http.post(GLOBALS.baseUrl + '/edit/add' + typeOfForm, vm.formData);   
             response.success(function (response) {
-                response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated" ));
-                vm.success = response;                
+                $location.path("edit/" + response.message); 
             }).error(function (err) {
                 alert("error" + err);
             });
@@ -28,8 +27,7 @@
             var bookId = vm.book.id;
             var response = $http.post(GLOBALS.baseUrl + '/delete/book/' + bookId);   
             response.success(function (response) {
-                response = response.message.concat(" deleted");
-                vm.success = response;                
+                $location.path("edit/" + response.message);             
             }).error(function (err) {
                 alert("error" + err);
             });

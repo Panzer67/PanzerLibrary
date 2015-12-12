@@ -1,8 +1,8 @@
 (function() {
     angular.module("PanzerLibrary").controller("paperController", paperController);
     
-    paperController.$inject = ['$http', 'paper', 'editTask', 'GLOBALS', 'Upload', '$timeout'];
-    function paperController($http, paper, editTask, GLOBALS, Upload, $timeout) {
+    paperController.$inject = ['$http', '$location', 'paper', 'editTask', 'GLOBALS', 'Upload', '$timeout'];
+    function paperController($http, $location, paper, editTask, GLOBALS, Upload, $timeout) {
         var vm = this;
         vm.progress = 0;
         vm.editTask = editTask;
@@ -11,15 +11,13 @@
         vm.paper = paper;
         vm.paper.pdflink = (editTask.edit === "Add") ? "" : paper.pdflink;
         
-        vm.postForm = function (typeOfForm) {
+        vm.postPaper = function (typeOfForm) {
             if (typeOfForm === 'paper') {
                 vm.formData = vm.paper;
             }
             var response = $http.post(GLOBALS.baseUrl + '/edit/add' + typeOfForm, vm.formData);
             response.success(function (response) {
-                response = response.message.concat(((editTask.edit === "Add") ? " added" : " updated"));
-                vm.success = response;
-
+                $location.path("edit/" + response.message); 
             }).error(function (err) {
                 alert("error" + err);
             });

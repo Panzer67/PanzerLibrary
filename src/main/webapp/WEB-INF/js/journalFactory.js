@@ -14,8 +14,9 @@
         };
         
         factory.getJournal = function() {
+            journal.journal_name = "";
             return journal;
-        };        
+        };
         
         return factory;
     }

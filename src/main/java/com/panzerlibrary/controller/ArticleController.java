@@ -81,7 +81,7 @@ public class ArticleController {
 
         articleDao.saveOrUpdate(article);
 
-        return new ResponseObject("Article successfully");
+        return new ResponseObject("articleAdded");
     }
 
     @RequestMapping(value = "/delete/article/{articleId}", method = RequestMethod.POST, produces = "application/json")
@@ -89,7 +89,7 @@ public class ArticleController {
     public ResponseObject deleteArticle(@PathVariable("articleId") int articleId) {
         articleDao.delete(articleId);
         
-        return new ResponseObject("Article successfully");
+        return new ResponseObject("articleDeleted");
     }
     
 }

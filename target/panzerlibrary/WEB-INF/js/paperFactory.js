@@ -25,8 +25,18 @@
             paper.abstractText = abstractText;
             paper.pdflink = pdflink;
         };
-
-        factory.getPaper = function () {
+        
+        factory.getPaper = function() {
+            paper.title = "";
+            paper.authors = [{
+                    "author_firstname": "",
+                    "author_lastname": ""
+                }];
+            paper.institute = "";
+            paper.year = "";
+            paper.pages = "";
+            paper.abstractText = "";
+            paper.pdflink = "";
             return paper;
         };
         

@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -97,7 +98,7 @@ public class HomeController {
             results.put("authors", arrAuthors);
             searchResults = JsonObjectToString(results);
 
-        } catch (Exception ex) {
+        } catch (ParseException | IOException ex) {
             log.log( Level.SEVERE, ex.getMessage());
         } 
         return searchResults;

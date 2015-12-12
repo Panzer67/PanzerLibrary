@@ -17,7 +17,8 @@
         <script src="${url}/js/angular-animate.min.js"></script>
         <script src="${url}/js/ui-bootstrap-tpls-0.14.3.js"></script>
         <script src="${url}/js/ng-file-upload-all.min.js"></script>
-        <script src="${url}/js/panzerLibrary.js"></script>        
+        <script src="${url}/js/panzerLibrary.js"></script>
+        <script src="${url}/js/editController.js"></script>
         <script src="${url}/js/libController.js"></script>
         <script src="${url}/js/searchController.js"></script>
         <script src="${url}/js/searchFactory.js"></script>       
@@ -32,6 +33,7 @@
         <script src="${url}/js/paperController.js"></script>
         <script src="${url}/js/paperFactory.js"></script>
         <script src="${url}/js/constanten.js"></script>
+        <script src="${url}/js/messageFactory.js"></script>
         
         <base href="/PanzerLibrary/" />
         <title>PanzerLibrary</title>

@@ -18,10 +18,8 @@
         };
         
         factory.getAuthor = function() {
-            return author;
-        };   
-        
-        factory.getOneExtraAuthor = function() {
+            author.author_firstname = "";
+            author.author_lastname = "";  
             return author;
         };
 

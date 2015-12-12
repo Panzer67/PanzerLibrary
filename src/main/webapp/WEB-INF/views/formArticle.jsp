@@ -1,9 +1,6 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<sec:authorize access="hasRole('ADMIN')">
-    <div ng-show="articleCtrl.success" class="form-group">
-        <h3 class="col-sm-offset-3">{{articleCtrl.success}}</h3>
-    </div>
-    <form ng-hide="articleCtrl.success" class="form-horizontal" data-ng-submit="articleCtrl.postArticle('article')" name="articleForm" novalidate>
+<sec:authorize access="hasRole('ADMIN')">    
+    <form name="articleForm" class="form-horizontal" data-ng-submit="articleCtrl.postArticle('article')" novalidate>
 
         <div class="form-group">
             <h3 class="col-sm-offset-3">Article Form <small>{{articleCtrl.success}}</small></h3>

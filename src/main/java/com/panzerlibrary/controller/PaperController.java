@@ -46,7 +46,7 @@ public class PaperController {
         
         paperDao.saveOrUpdate(paper);
 
-        return new ResponseObject("Paper successfully added.");
+        return new ResponseObject("paperAdded.");
     }
     
 }
