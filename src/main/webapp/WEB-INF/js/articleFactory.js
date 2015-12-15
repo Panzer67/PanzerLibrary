@@ -33,13 +33,10 @@
 
         factory.getArticle = function () {
             article.title = "";
-            article.authors = [{
-                    "author_firstname": "",
-                    "author_lastname": ""
-                }];
-            article.journal = {
-                "journal_name": ""
-            };
+            article.authors = [
+                authorFactory.getAuthor()
+            ];
+            article.journal = journalFactory.getJournal();
             article.volume = "";
             article.issue = "";
             article.year = "";

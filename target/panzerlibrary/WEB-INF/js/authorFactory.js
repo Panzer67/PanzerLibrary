@@ -8,18 +8,21 @@
         
         var author = {
                 "author_firstname": "",
-                "author_lastname": ""
+                "author_lastname": "",
+                "initial": ""
         };
         
         
-        factory.setAuthor = function (firstname, lastname) {
+        factory.setAuthor = function (firstname, lastname, initial) {
             author.author_firstname = firstname;
-            author.author_lastname = lastname;            
+            author.author_lastname = lastname;
+            author.initial = initial;
         };
         
         factory.getAuthor = function() {
             author.author_firstname = "";
             author.author_lastname = "";  
+            author.initial = "";
             return author;
         };
 

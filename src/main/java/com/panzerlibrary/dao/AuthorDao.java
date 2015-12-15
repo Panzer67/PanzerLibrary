@@ -20,7 +20,7 @@ public interface AuthorDao {
 
     public List<Author> getAuthorByName(String lastname);
 
-    public Author checkExistingAuthorByName(String firstname, String lastname);
+    public Author checkExistingAuthorByName(String firstname, String lastname, String initial);
 
     public boolean checkAuthorByName(String lastname, String firstname);
 

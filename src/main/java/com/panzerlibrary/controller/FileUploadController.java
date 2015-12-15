@@ -18,6 +18,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,7 +27,7 @@ public class FileUploadController {
 
     private static final Logger log = Logger.getLogger(FileUploadController.class.getName());
 
-    private static final String UPLOAD_LOCATION = "C:/temp/";
+    private static final String UPLOAD_LOCATION = "D:/temp/pdfs/";
 
     @Autowired
     FileValidator fileValidator;
@@ -38,7 +39,7 @@ public class FileUploadController {
 
     @RequestMapping(value = "/singleUpload", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseObject singleFileUpload(@Valid FileBucket fileBucket, BindingResult result) {
+    public ResponseObject singleFileUpload(@Valid FileBucket fileBucket, @RequestParam("dir") String fileDir, BindingResult result) {
 
         if (result.hasErrors()) {
             log.log(Level.SEVERE, "File validation errors");
@@ -47,7 +48,7 @@ public class FileUploadController {
             try {
                 
                 String filename = fileBucket.getFile().getOriginalFilename();                
-                File renamedFile = new File(UPLOAD_LOCATION + Helper.properFilenameMaker(filename));
+                File renamedFile = new File(UPLOAD_LOCATION + fileDir + "/" + Helper.properFilenameMaker(filename));
                 FileCopyUtils.copy(fileBucket.getFile().getBytes(), renamedFile);               
                
                 return new ResponseObject("Successful upload of " + filename, renamedFile.getName());

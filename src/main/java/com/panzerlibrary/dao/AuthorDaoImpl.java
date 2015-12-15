@@ -68,7 +68,7 @@ public class AuthorDaoImpl implements AuthorDao {
 
     @Override
     @Transactional
-    public Author checkExistingAuthorByName(String firstname, String lastname) {
+    public Author checkExistingAuthorByName(String firstname, String lastname, String initial) {
         String hql = "from Author where author_firstname='" + firstname + "' and author_lastname='" + lastname + "'";
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
@@ -80,6 +80,7 @@ public class AuthorDaoImpl implements AuthorDao {
         Author author = new Author();
         author.setAuthor_firstname(firstname);
         author.setAuthor_lastname(lastname);
+        author.setInitial(initial);        
 
         return author;
     }
@@ -98,6 +99,7 @@ public class AuthorDaoImpl implements AuthorDao {
     @Override
     @Transactional
     public void saveOrUpdate(Author author) {
+        
         sessionFactory.getCurrentSession().saveOrUpdate(author);
 
     }

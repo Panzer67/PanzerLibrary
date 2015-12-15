@@ -44,6 +44,7 @@ public class Author implements Serializable {
     @Column(name = "AUTHOR_LASTNAME")    
     private String author_lastname;
     
+    private String initial;    
     
     @LazyCollection(LazyCollectionOption.FALSE)     
     @ManyToMany(mappedBy = "articleAuthors")     
@@ -117,4 +118,13 @@ public class Author implements Serializable {
     public void setPapers(List<Paper> papers) {
         this.papers = papers;
     }
+
+    public String getInitial() {
+        return initial;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
+    }
+    
 }

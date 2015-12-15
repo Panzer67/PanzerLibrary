@@ -53,14 +53,14 @@ public class ArticleController {
         return model;
     }
 
-    @RequestMapping(value = "/article/{title}", method = RequestMethod.GET)
+    @RequestMapping(value = "/article/{articleId}", method = RequestMethod.GET)
     @ResponseBody
-    public String getArticle(@PathVariable("title") String title) {
+    public String getArticle(@PathVariable("articleId") int articleId) {
 
-        Article article = articleDao.getArticleByTitle(title);
-
+        Article article = articleDao.get(articleId);
         JSONSerializer serializer = new JSONSerializer();
-        return serializer.include("authors").include("").serialize(article);
+        
+        return serializer.include("authors").serialize(article);
     }
 
     @RequestMapping(value = "/edit/addarticle", method = RequestMethod.POST, produces = "application/json")
@@ -70,7 +70,7 @@ public class ArticleController {
         List<Author> authors = article.getAuthors();
         List<Author> checkedAuthors = new ArrayList();
         for (Author author : authors) {
-            author = authorDao.checkExistingAuthorByName(author.getAuthor_firstname(), author.getAuthor_lastname());
+            author = authorDao.checkExistingAuthorByName(author.getAuthor_firstname(), author.getAuthor_lastname(), author.getInitial());
             checkedAuthors.add(author);
         }
         article.setAuthors(checkedAuthors);

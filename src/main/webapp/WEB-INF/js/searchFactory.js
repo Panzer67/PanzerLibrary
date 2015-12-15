@@ -1,8 +1,8 @@
 (function() {
     angular.module('PanzerLibrary').factory('searchFactory', searchFactory);
     
-    searchFactory.$inject = ['$http', '$q', '$timeout', '$log', 'GLOBALS'];
-    function searchFactory($http, $q, $timeout, $log, GLOBALS) {
+    searchFactory.$inject = ['$http', '$q', '$timeout', '$log', 'GLOBALS', 'objectFactory'];
+    function searchFactory($http, $q, $timeout, $log, GLOBALS, objectFactory) {
         var factory = {};
 
         
@@ -18,10 +18,13 @@
             return deferred.promise;   
         };
         
-        factory.getArticle = function(title) {
+        factory.getLibObject = function(item, id) {
             var deferred = $q.defer();
-            $http.get('http://localhost:8080/PanzerLibrary/article/' + title)
+            $http.get(GLOBALS.baseUrl + '/' + item + '/' + id)
                     .success(function(data) {
+                        if (data === null) {                            
+                            deferred.resolve(objectFactory.getObject(item));
+                        }
                         deferred.resolve(data);
             }).error(function(msg) {
                 deferred.reject(msg);

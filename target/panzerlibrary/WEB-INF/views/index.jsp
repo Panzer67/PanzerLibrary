@@ -18,22 +18,19 @@
         <script src="${url}/js/ui-bootstrap-tpls-0.14.3.js"></script>
         <script src="${url}/js/ng-file-upload-all.min.js"></script>
         <script src="${url}/js/panzerLibrary.js"></script>
-        <script src="${url}/js/editController.js"></script>
+        <script src="${url}/js/postEditController.js"></script>
         <script src="${url}/js/libController.js"></script>
         <script src="${url}/js/searchController.js"></script>
-        <script src="${url}/js/searchFactory.js"></script>       
-        <script src="${url}/js/authorController.js"></script>
-        <script src="${url}/js/authorFactory.js"></script>
-        <script src="${url}/js/bookController.js"></script>
+        <script src="${url}/js/searchFactory.js"></script>
+        <script src="${url}/js/authorFactory.js"></script>        
         <script src="${url}/js/bookFactory.js"></script>
-        <script src="${url}/js/articleController.js"></script>
-        <script src="${url}/js/articleFactory.js"></script>
-        <script src="${url}/js/journalController.js"></script>
+        <script src="${url}/js/editController.js"></script>
+        <script src="${url}/js/articleFactory.js"></script>        
         <script src="${url}/js/journalFactory.js"></script>
-        <script src="${url}/js/paperController.js"></script>
         <script src="${url}/js/paperFactory.js"></script>
         <script src="${url}/js/constanten.js"></script>
         <script src="${url}/js/messageFactory.js"></script>
+        <script src="${url}/js/objectFactory.js"></script>
         
         <base href="/PanzerLibrary/" />
         <title>PanzerLibrary</title>

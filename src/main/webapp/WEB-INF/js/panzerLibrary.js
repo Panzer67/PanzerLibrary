@@ -17,86 +17,138 @@
                 })
                 .when('/author', {
                     templateUrl: 'author',
-                    controller: 'authorController',
-                    controllerAs: 'authorCtrl',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
                     resolve: {
-                        author: function (authorFactory) {
-                            return authorFactory.getAuthor();
+                        libObject: function (objectFactory) {
+                            return objectFactory.getObject("author");
                         },
                         editTask: function () {
-                            return {edit: "Add"};
+                            return {edit: "Add", type: "author"};
+                        }
+                    }
+                })
+                .when('/author/:id', {
+                    templateUrl: 'author',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
+                    resolve: {
+                        libObject: function (searchFactory, $route) {
+                            return searchFactory.getLibObject("author", $route.current.params.id);
+                        },
+                        editTask: function () {
+                            return {edit: "Update", type: "author"};
                         }
                     }
                 })
                 .when('/book', {
                     templateUrl: 'book',
-                    controller: 'bookController',
-                    controllerAs: 'bookCtrl',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
                     resolve: {
-                        book: function (bookFactory) {
-                            return bookFactory.getBook();
+                        libObject: function (objectFactory) {
+                            return objectFactory.getObject("book");
                         },
                         editTask: function () {
-                            return {edit: "Add"};
+                            return {edit: "Add", type: "book"};
+                        }
+                    }
+                })
+                .when('/book/:id', {
+                    templateUrl: 'book',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
+                    resolve: {
+                        libObject: function (searchFactory, $route) {
+                            return searchFactory.getLibObject("book", $route.current.params.id);
+                        },
+                        editTask: function () {
+                            return {edit: "Update", type: "book"};
                         }
                     }
                 })
                 .when('/article', {
                     templateUrl: 'article',
-                    controller: 'articleController',
-                    controllerAs: 'articleCtrl',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
                     resolve: {
-                        article: function (articleFactory) {
-                            return articleFactory.getArticle();
+                        libObject: function (objectFactory) {
+                            return objectFactory.getObject("article");
                         },
                         editTask: function () {
-                            return {edit: "Add"};
+                            return {edit: "Add", type: "article"};
                         }
                     }
                 })
-                .when('/article/:article', {
+                .when('/article/:id', {
                     templateUrl: 'article',
-                    controller: 'articleController',
-                    controllerAs: 'articleCtrl',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
                     resolve: {
-                        article: function ($route) {
-                            return JSON.parse($route.current.params.article);
+                        libObject: function (searchFactory, $route) {
+                            return searchFactory.getLibObject("article", $route.current.params.id);
                         },
                         editTask: function () {
-                            return {edit: "Update"};
+                            return {edit: "Update", type: "article"};
                         }
                     }
                 })
                 .when('/journal', {
                     templateUrl: 'journal',
-                    controller: 'journalController',
-                    controllerAs: 'journalCtrl',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
                     resolve: {
-                        journal: function (journalFactory) {
-                            return journalFactory.getJournal();
+                        libObject: function (objectFactory) {
+                            return objectFactory.getObject("journal");
                         },
                         editTask: function () {
-                            return {edit: "Add"};
+                            return {edit: "Add", type: "journal"};
+                        }
+                    }
+                })
+                .when('/journal/:id', {
+                    templateUrl: 'journal',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
+                    resolve: {
+                        libObject: function (searchFactory, $route) {
+                            return searchFactory.getLibObject("journal", $route.current.params.id);
+                        },
+                        editTask: function () {
+                            return {edit: "Update", type: "journal"};
                         }
                     }
                 })
                 .when('/paper', {
                     templateUrl: 'paper',
-                    controller: 'paperController',
-                    controllerAs: 'paperCtrl',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
                     resolve: {
-                        paper: function (paperFactory) {
-                            return paperFactory.getPaper();
+                        libObject: function (objectFactory) {
+                            return objectFactory.getObject("paper");
                         },
                         editTask: function () {
-                            return {edit: "Add"};
+                            return {edit: "Add", type: "paper"};
+                        }
+                    }
+                })
+                .when('/paper/:id', {
+                    templateUrl: 'paper',
+                    controller: 'editController',
+                    controllerAs: 'editCtrl',
+                    resolve: {
+                        libObject: function (searchFactory, $route) {
+                            return searchFactory.getLibObject("paper", $route.current.params.id);
+                        },
+                        editTask: function () {
+                            return {edit: "Update", type: "paper"};
                         }
                     }
                 })
                 .when('/edit/:param', {
                     templateUrl: 'editmessage',
-                    controller: 'editController',
-                    controllerAs: 'editCtrl',
+                    controller: 'postEditController',
+                    controllerAs: 'postEditCtrl',
                     resolve: {
                         message: function(messageFactory, $route) {
                             return messageFactory.getMessage($route.current.params.param);
