@@ -31,7 +31,7 @@ import org.hibernate.search.annotations.TokenFilterDef;
 import org.hibernate.search.annotations.TokenizerDef;
 
 @Entity
-@Indexed
+@Indexed(index = "BOOKS")
 @Table(name = "BOOKS")
 @AnalyzerDef(name = "customanalyzer",
   tokenizer = @TokenizerDef(factory = StandardTokenizerFactory.class),

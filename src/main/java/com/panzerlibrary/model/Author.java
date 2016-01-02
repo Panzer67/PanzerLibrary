@@ -27,7 +27,7 @@ import org.hibernate.search.annotations.TokenFilterDef;
 import org.hibernate.search.annotations.TokenizerDef;
 
 @Entity
-@Indexed
+@Indexed(index = "AUTHORS")
 @Table(name = "AUTHORS")
 public class Author implements Serializable {
     

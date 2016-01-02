@@ -14,7 +14,7 @@ import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
 @Entity
-@Indexed
+@Indexed(index = "JOURNALS")
 @Table(name = "JOURNALS")
 public class Journal implements Serializable {
     
